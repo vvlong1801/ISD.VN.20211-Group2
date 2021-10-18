@@ -13,4 +13,13 @@
 - Tran Xuan Truong: outline Return bike + Pause rental time
 - Mai Hoang Minh: outline Pay bike rental + Add new kind of bike
 ## Revisions
+# LAB02 - Use Case Specification
+## Tasks
+- Specify UC Rent bike
+- Specify UC Return bike
+- Specify UC Pay Bike Rental
+## Contributions
+- Vu Van Long: Specify UC Pay Bike Rental
+- Tran Xuan Truong: Specify UC Return Bike
+- Mai Hoang Minh: Specify UC Rent Bike + View Bike Info
 
