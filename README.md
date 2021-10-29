@@ -25,7 +25,7 @@
 - Mai Hoang Minh: Specify UC Rent Bike + View Bike Info
 # LAB03 - Interaction Diagram
 ## Tasks
-- Design squence diagram & communication diagram for:
+- Design sequence diagram & communication diagram for:
   - Use case Rent Bike
   - Use case Return Bike
   - Use case Pay Bike Deposit
@@ -33,3 +33,14 @@
 - Vu Van Long: Use case Rent Bike
 - Tran Xuan Truong: Use case Pay Bike Deposit
 - Mai Hoang Minh: Use case Return Bike
+# LAB04 - Analysis Class Diagram
+## Tasks
+- Design class diagram for:
+  - Use case Rent Bike
+  - Use case View Bike Info
+  - Use case Return Bike
+  - Use case Pay Bike Deposit
+## Contributions
+- Vu Van Long: Use case Return Bike + View Bike Info
+- Tran Xuan Truong: Use case Rent Bike
+- Mai Hoang Minh: Use case Pay Bike Deposit
