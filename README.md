@@ -44,3 +44,15 @@
 - Vu Van Long: Use case Return Bike + View Bike Info
 - Tran Xuan Truong: Use case Rent Bike
 - Mai Hoang Minh: Use case Pay Bike Deposit
+# LAB05 - Interface Design
+## Tasks
+- Design graphical user interface:
+  - Screen configuration standardizations
+  - Mockup designs
+  - Screen transition	diagrams
+  - Detailed screen specifications
+- Interface design with another system/device: Using subsystem
+## Contributions
+- Vu Van Long: Screen configuration standardizations + Mockup designs
+- Tran Xuan Truong: Screen transition	diagrams + Detailed screen specifications
+- Mai Hoang Minh: Interface design with another system/device: Using subsystem
