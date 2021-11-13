@@ -56,3 +56,13 @@
 - Vu Van Long: Screen configuration standardizations + Mockup designs
 - Tran Xuan Truong: Screen transition	diagrams + Detailed screen specifications
 - Mai Hoang Minh: Interface design with another system/device: Using subsystem
+# LAB06 - Class Design
+## Tasks
+- Design classes for use cases:
+  - Rent Bike
+  - Return Bike
+  - View Bike/ View Dock
+## Contributions
+- Vu Van Long: Design classes for UC Return Bike
+- Tran Xuan Truong: Design classes for UC View Bike/ View Dock
+- Mai Hoang Minh: Design classes for UC Rent Bike
