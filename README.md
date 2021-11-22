@@ -66,3 +66,13 @@
 - Vu Van Long: Design classes for UC Return Bike
 - Tran Xuan Truong: Design classes for UC View Bike/ View Dock
 - Mai Hoang Minh: Design classes for UC Rent Bike
+# LAB07 - Data Modeling
+## Tasks
+- Entity-Relation diagram (E-R Diagram): work in group
+- Database design: work in group
+- Detailed design of components in database (table/document)
+- Complete software design document (SDD) with the provided template
+## Contributions
+- Vu Van Long: Detailed design of Invoice entity + SDD
+- Tran Xuan Truong: Detailed design of Dock + Bike entity
+- Mai Hoang Minh: Detailed design of Transaction + CreditCard entity
