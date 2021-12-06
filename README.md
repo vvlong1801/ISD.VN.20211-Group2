@@ -76,3 +76,13 @@
 - Vu Van Long: Detailed design of Invoice entity + SDD
 - Tran Xuan Truong: Detailed design of Dock + Bike entity
 - Mai Hoang Minh: Detailed design of Transaction + CreditCard entity
+# LAB08 - Unit Test
+## Tasks
+- implement	the	unit tests to the class:
+  - RentBikeController
+  - ReturnBikeController
+  - PayBikeDepositController
+## Contributions
+- Vu Van Long: ReturnBikeController (validateDockName method)
+- Tran Xuan Truong: PayBikeDepositController (validateExpirationDate & validateCvvCode method)
+- Mai Hoang Minh: RentBike (validateBarcode method)
