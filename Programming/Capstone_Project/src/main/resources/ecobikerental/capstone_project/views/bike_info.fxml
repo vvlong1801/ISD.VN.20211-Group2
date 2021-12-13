@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="ecobikerental.capstone_project.views.bike.BikeInfoScreenHandler">
+   <children>
+      <Pane layoutX="120.0" layoutY="134.0" prefHeight="60.0" style="-fx-background-color: #160C67;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Pane layoutX="335.0" layoutY="150.0" prefHeight="60.0" style="-fx-background-color: #e4e1e1;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="680.0" layoutY="10.0" prefHeight="40.0" prefWidth="300.0" text="BIKE INFORMATION" textFill="#160c67">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="105.0" layoutY="209.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+         <children>
+            <HBox layoutX="60.0" layoutY="60.0" prefHeight="500.0" prefWidth="1160.0" spacing="100.0" style="-fx-background-color: #ffffff;">
+               <children>
+                  <ImageView fx:id="imgBike" fitHeight="420.0" fitWidth="300.0" focusTraversable="true" pickOnBounds="true" smooth="false">
+                     <image>
+                        <Image url="@../../../../../../assets/images/e-bike.jpg" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" />
+                     </effect>
+                  </ImageView>
+                  <VBox prefHeight="420.0" prefWidth="680.0" spacing="20.0" style="-fx-background-color: #e1e4e4;">
+                     <children>
+                        <Label fx:id="lbType" alignment="CENTER" prefHeight="40.0" prefWidth="680.0" style="-fx-background-color: #160C67;" text="Standard Electric Bike" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <VBox prefWidth="100.0" spacing="20.0" style="-fx-background-color: #e4e4e4;">
+                           <children>
+                              <HBox prefHeight="40.0">
+                                 <children>
+                                    <Label prefHeight="50.0" prefWidth="150.0" text="Barcode" textFill="#160c67">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lbBarcode" prefHeight="40.0" prefWidth="480.0" text="0987654321" textFill="#160c67">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="40.0">
+                                 <children>
+                                    <Label prefHeight="50.0" prefWidth="150.0" text="License Plate" textFill="#160c67">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lbLicensePlate" prefHeight="40.0" prefWidth="480.0" text="29-X1/53214" textFill="#160c67">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="40.0">
+                                 <children>
+                                    <Label prefHeight="50.0" prefWidth="150.0" text="Dock" textFill="#160c67">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lbDockName" prefHeight="40.0" prefWidth="480.0" text="Bach Khoa University" textFill="#160c67">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="40.0">
+                                 <children>
+                                    <Label prefHeight="50.0" prefWidth="150.0" text="Deposit" textFill="#160c67">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lbDeposit" prefHeight="40.0" prefWidth="480.0" text="3.000.0000 VND" textFill="#160c67">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="40.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="150.0" text="Type Card" textFill="#160c67">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="rbCreditCard" alignment="CENTER_LEFT" mnemonicParsing="false" prefHeight="40.0" text="CreditCard" textFill="#160c67">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </RadioButton>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="40.0">
+                                 <children>
+                                    <Button fx:id="btnBack" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #160c67;" text="Back" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="btnRent" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #160c67;" text="Rent Bike" textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets left="420.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+               </padding>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane layoutX="114.0" layoutY="333.0" prefHeight="60.0" style="-fx-background-color: #160C67;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <ImageView fx:id="imgLogo" fitWidth="130.0" layoutX="20.0" layoutY="20.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box,gray,8,0.0,0,4);" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../../../../assets/images/Splash.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+   </children>
+</AnchorPane>
