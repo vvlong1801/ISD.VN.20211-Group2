@@ -1,0 +1,17 @@
+module:ecobikerental.capstone_project
+ecobikerental.capstone_project
+ecobikerental.capstone_project.controller
+ecobikerental.capstone_project.entity.bike
+ecobikerental.capstone_project.entity.db
+ecobikerental.capstone_project.entity.dock
+ecobikerental.capstone_project.entity.invoice
+ecobikerental.capstone_project.entity.payment
+ecobikerental.capstone_project.exception
+ecobikerental.capstone_project.subsystem
+ecobikerental.capstone_project.subsystem.interbank
+ecobikerental.capstone_project.utils
+ecobikerental.capstone_project.views
+ecobikerental.capstone_project.views.bike
+ecobikerental.capstone_project.views.dock
+ecobikerental.capstone_project.views.home
+ecobikerental.capstone_project.views.paydeposit
