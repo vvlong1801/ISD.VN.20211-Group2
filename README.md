@@ -86,3 +86,18 @@
 - Vu Van Long: ReturnBikeController (validateDockName method)
 - Tran Xuan Truong: PayBikeDepositController (validateExpirationDate & validateCvvCode method)
 - Mai Hoang Minh: RentBike (validateBarcode method)
+# LAB09 - Programming
+## Tasks
+- Using	a	development	tool like	Checkstyle for capstone project
+- Add and export javadoc
+## Contributions
+- Vu Van Long: checkstyle and add javadoc for classes Boundary
+- Tran Xuan Truong: checkstyle and add javadoc for classes ReturnBikeController & Entity
+- Mai Hoang Minh: checkstyle and add javadoc for classes RentBikeController & PayBikeDepositController & Subsystem
+# LAB10 - Design concepts
+## Tasks
+- Apply coupling and cohesion to review design 
+## Contributions
+- Vu Van Long: review design UC view bike, view dock & classes boundary
+- Tran Xuan Truong: review design UC return bike
+- Mai Hoang Minh: review design of UC rent bike
