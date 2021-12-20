@@ -15,8 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="ecobikerental.capstone_project.views.paydeposit.PayDepositScreenHandler">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="110.0" layoutY="124.0" prefHeight="60.0" style="-fx-background-color: #160C67;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Pane layoutX="325.0" layoutY="140.0" prefHeight="60.0" style="-fx-background-color: #e4e1e1;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
@@ -48,12 +47,12 @@ fx:controller="ecobikerental.capstone_project.views.paydeposit.PayDepositScreenH
                   </HBox>
                   <HBox layoutX="10.0" layoutY="10.0">
                      <children>
-                        <Label fx:id="tfCardNumber" prefHeight="40.0" prefWidth="230.0" text="Card Number" textFill="#160c67">
+                        <Label prefHeight="40.0" prefWidth="230.0" text="Card Number" textFill="#160c67">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="40.0" prefWidth="550.0" style="-fx-border-color: #160C67; -fx-border-radius: 5;">
+                        <TextField fx:id="tfCardNumber" prefHeight="40.0" prefWidth="550.0" style="-fx-border-color: #160C67; -fx-border-radius: 5;">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -62,22 +61,22 @@ fx:controller="ecobikerental.capstone_project.views.paydeposit.PayDepositScreenH
                   </HBox>
                   <HBox layoutX="10.0" layoutY="426.0">
                      <children>
-                        <Label fx:id="cbbIssuingBank" prefHeight="40.0" prefWidth="230.0" text="Issuing Bank" textFill="#160c67">
+                        <Label prefHeight="40.0" prefWidth="230.0" text="Issuing Bank" textFill="#160c67">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <ComboBox prefHeight="40.0" prefWidth="550.0" style="-fx-border-color: #160C67; -fx-background-color: #ffffff; -fx-border-radius: 5;" />
+                        <ComboBox fx:id="cbbIssuingBank" prefHeight="40.0" prefWidth="550.0" style="-fx-border-color: #160C67; -fx-background-color: #ffffff; -fx-border-radius: 5;" />
                      </children>
                   </HBox>
                   <HBox layoutX="10.0" layoutY="70.0">
                      <children>
-                        <Label fx:id="tfSecurityCode" prefHeight="40.0" prefWidth="230.0" text="Security Code" textFill="#160c67">
+                        <Label prefHeight="40.0" prefWidth="230.0" text="Security Code" textFill="#160c67">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="40.0" prefWidth="550.0" style="-fx-border-color: #160C67; -fx-border-radius: 5;">
+                        <TextField fx:id="tfSecurityCode" prefHeight="40.0" prefWidth="550.0" style="-fx-border-color: #160C67; -fx-border-radius: 5;">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -86,12 +85,12 @@ fx:controller="ecobikerental.capstone_project.views.paydeposit.PayDepositScreenH
                   </HBox>
                   <HBox layoutX="10.0" layoutY="70.0">
                      <children>
-                        <Label fx:id="tfExpirationDate" prefHeight="40.0" prefWidth="230.0" text="Expiration Date" textFill="#160c67">
+                        <Label prefHeight="40.0" prefWidth="230.0" text="Expiration Date" textFill="#160c67">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="40.0" prefWidth="550.0" style="-fx-border-color: #160C67; -fx-border-radius: 5;">
+                        <TextField fx:id="tfExpirationDate" prefHeight="40.0" prefWidth="550.0" style="-fx-border-color: #160C67; -fx-border-radius: 5;">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -100,12 +99,12 @@ fx:controller="ecobikerental.capstone_project.views.paydeposit.PayDepositScreenH
                   </HBox>
                   <HBox layoutX="10.0" layoutY="444.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="taContent" prefHeight="40.0" prefWidth="230.0" text="Content" textFill="#160c67">
+                        <Label prefHeight="40.0" prefWidth="230.0" text="Content" textFill="#160c67">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <TextArea prefHeight="80.0" prefWidth="550.0" style="-fx-border-radius: 5; -fx-border-color: #160C67;">
+                        <TextArea fx:id="taContent" prefHeight="80.0" prefWidth="550.0" style="-fx-border-radius: 5; -fx-border-color: #160C67;">
                            <font>
                               <Font size="18.0" />
                            </font>

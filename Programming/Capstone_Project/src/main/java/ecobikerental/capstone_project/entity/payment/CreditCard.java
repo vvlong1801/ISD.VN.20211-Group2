@@ -13,9 +13,9 @@ public class CreditCard {
      */
     private String owner;
     /**
-     * Represent the cvvCode of card
+     * Represent the cvvCode of card.
      */
-    private int cvvCode;
+    private String cvvCode;
     /**
      * Represent the expired date of card
      */
@@ -28,11 +28,43 @@ public class CreditCard {
      * @param cvvCode - the cvvCode of card
      * @param dateExpired - the expired date of card
      */
-    public CreditCard(String cardCode, String owner, int cvvCode, String dateExpired) {
+    public CreditCard(String cardCode, String owner, String cvvCode, String dateExpired) {
         super();
         this.cardCode = cardCode;
         this.owner = owner;
         this.cvvCode = cvvCode;
+        this.dateExpired = dateExpired;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public String getCardCode() {
+        return cardCode;
+    }
+
+    public void setCardCode(String cardCode) {
+        this.cardCode = cardCode;
+    }
+
+    public int getCvvCode() {
+        return cvvCode;
+    }
+
+    public void setCvvCode(int cvvCode) {
+        this.cvvCode = cvvCode;
+    }
+
+    public String getDateExpired() {
+        return dateExpired;
+    }
+
+    public void setDateExpired(String dateExpired) {
         this.dateExpired = dateExpired;
     }
 }

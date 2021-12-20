@@ -1,17 +1,19 @@
 package ecobikerental.capstone_project.entity.bike;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import ecobikerental.capstone_project.entity.db.EcobikeRentalDB;
+
 /**
  * Entity Bike
  */
 public class Bike {
     /**
-     * Represent for id of Bike
+     * Represent for type of Bike.
      */
-    private int id;
-    /**
-     * Represent for type of Bike
-     */
-    private int type;
+    private String type;
     /**
      * Represent for code of Bike
      */
@@ -21,44 +23,40 @@ public class Bike {
      */
     private String licensePlate;
     /**
-     * Represent for deposit fee of bike
+     * Represent for deposit fee of bike.
      */
-    private int depositFee;
+    private String dockName;
 
     /**
-     * Getter for id
-     * @return id
+     * deposit fee of bike.
      */
-    public int getId() {
-        return id;
-    }
+    private int deposit;
 
-    /**
-     * Setter for id
-     * @param id - the id of bike
-     */
-    public void setId(int id) {
-        this.id = id;
+    public Bike() {
+
     }
 
     /**
      * Getter for type
+     *
      * @return type
      */
-    public int getType() {
+    public String getType() {
         return type;
     }
 
     /**
      * Setter for type
+     *
      * @param type - the type of bike
      */
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
     /**
      * Getter for bikeCode
+     *
      * @return bikeCode
      */
     public String getBikeCode() {
@@ -67,6 +65,7 @@ public class Bike {
 
     /**
      * Setter for bikeCode
+     *
      * @param bikeCode - the code of bike
      */
     public void setBikeCode(String bikeCode) {
@@ -75,6 +74,7 @@ public class Bike {
 
     /**
      * Getter for licensePlate
+     *
      * @return licensePlate
      */
     public String getLicensePlate() {
@@ -83,69 +83,91 @@ public class Bike {
 
     /**
      * Setter for licensePlate
+     *
      * @param licensePlate - the license plate of bike
      */
-    public void setLicensePlate(String licensePlate) {
+    public void setLicensePlate(final String licensePlate) {
         this.licensePlate = licensePlate;
     }
 
     /**
-     * Getter for depositFee
-     * @return depositFee
+     * Getter for dock name.
+     *
+     * @return dock name
      */
-    public int getDepositFee() {
-        return depositFee;
+    public String getDockName() {
+        return dockName;
     }
 
     /**
-     * Setter for depositFee
-     * @param depositFee the deposit fee of bike
+     * Setter for dock name.
+     *
+     * @param dockName - dock name.
      */
-    public void setDepositFee(int depositFee) {
-        this.depositFee = depositFee;
+    public void setDockName(String dockName) {
+        this.dockName = dockName;
     }
 
     /**
-     * Default constructor of class Bike
+     * Getter for depositFee.
+     *
+     * @return - deposit
      */
-    public Bike(){};
+    public int getDeposit() {
+        return deposit;
+    }
 
     /**
-     * Constructor with 4 arguments
-     * @param type - the type of bike
-     * @param bikeCode - the code of bike
+     * Setter for deposit fee.
+     *
+     * @param deposit - deposit fee
+     */
+    public void setDeposit(int deposit) {
+        this.deposit = deposit;
+    }
+
+    //    /**
+    //     * Default constructor of class Bike
+    //     */
+    //    public Bike() {
+    //    }
+
+    /**
+     * Constructor with 5 arguments.
+     *
+     * @param type         - the type of bike
+     * @param bikeCode     - the code of bike
      * @param licensePlate - the license plate of bike
-     * @param depositFee - the deposit fee of bike
+     * @param dockName     - the name of dock
+     * @param deposit      - the deposit fee of bike
      */
-    public Bike(int type, String bikeCode, String licensePlate, int depositFee) {
+    public Bike(String type, String bikeCode, String licensePlate, String dockName, int deposit) {
         this.type = type;
         this.bikeCode = bikeCode;
         this.licensePlate = licensePlate;
-        this.depositFee = depositFee;
+        this.dockName = dockName;
+        this.deposit = deposit;
     }
 
     /**
-     * Constructor with 5 arguments
-     * @param id - the id of bike
-     * @param type - the type of bike
+     * This method gets bike from bikeCode.
+     *
      * @param bikeCode - the code of bike
-     * @param licensePlate - the license plate of bike
-     * @param depositFee - the deposit plate of bike
-     */
-    public Bike(int id, int type, String bikeCode, String licensePlate, int depositFee) {
-        this.id = id;
-        this.type = type;
-        this.bikeCode = bikeCode;
-        this.licensePlate = licensePlate;
-        this.depositFee = depositFee;
-    }
-
-    /**
-     * This method gets bike from bikeCode
-     * @param bikeCode - the code of bike
+     *
      * @return Bike
      */
-    public Bike getBikeByBikeCode(String bikeCode){
-        return new Bike();
+    public Bike getBikeByBikeCode(final String bikeCode) throws SQLException {
+        Statement stmt = EcobikeRentalDB.getConnection().createStatement();
+        String query =
+            "select bike.code,dock.name as dock_name,bike.license_plate,type.name as type_name,type.deposit_fee from bike,type,dock where bike.code = \'" +
+                bikeCode + "\' and bike.type = type.id and bike.dock = dock.id";
+        ResultSet res = stmt.executeQuery(query);
+        Bike bike = null;
+        while(res.next()) {
+            bike = new Bike(res.getString("type_name"), res.getString("code"), res.getString("license_plate"),
+                res.getString("dock_name"), res.getInt("deposit_fee"));
+            break;
+        }
+        return bike;
     }
 }

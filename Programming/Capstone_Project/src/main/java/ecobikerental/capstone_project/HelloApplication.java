@@ -34,11 +34,11 @@ public class HelloApplication extends Application {
 
         // After fade in, start fade out
         fadeIn.play();
-        fadeIn.setOnFinished((e)->{
+        fadeIn.setOnFinished((e) -> {
             fadeOut.play();
         });
 
-        fadeOut.setOnFinished(event->{
+        fadeOut.setOnFinished(event -> {
             try {
                 HomeScreenHandler homeHandler = new HomeScreenHandler(stage, Configs.HOME_SCREEN_PATH);
                 homeHandler.setScreenTitle("Home Screen");

@@ -13,6 +13,7 @@ import ecobikerental.capstone_project.views.BaseScreenHandler;
 import ecobikerental.capstone_project.views.dock.DockInfoScreenHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -26,72 +27,138 @@ import javafx.stage.Stage;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
 
+    /**
+     * combobox is used to sort data in table.
+     */
+    @FXML
     public ChoiceBox cbSort;
+    /**
+     * image logo.
+     */
+    @FXML
     public ImageView imgLogo;
+    /**
+     * text field input data to search.
+     */
+    @FXML
     public TextField tfSearch;
+    /**
+     * button search.
+     */
+    @FXML
     public Button btnSearch;
+    /**
+     * table view list of dock.
+     */
+    @FXML
     public TableView<Dock> tvDockList;
-    public TableColumn<Dock,Integer> colId;
+    /**
+     * column Id in table.
+     */
+    @FXML
+    public TableColumn<Dock, Integer> colId;
+    /**
+     * column Dock Name in table.
+     */
+    @FXML
     public TableColumn<Dock, String> colDockName;
+    /**
+     * column Address in table.
+     */
+    @FXML
     public TableColumn<Dock, String> colAddress;
+    /**
+     * column Area in table.
+     */
+    @FXML
     public TableColumn<Dock, Integer> colArea;
+    /**
+     * column Quantity in table.
+     */
+    @FXML
     public TableColumn<Dock, Integer> colQuantity;
 
+    /**
+     * @param stage      - this stage
+     * @param screenPath - path of home screen in config
+     *
+     * @throws IOException
+     */
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
     }
 
+    /**
+     * @return - HomeController is controller of HomeScreen
+     */
+    public HomeController getController() {
+        return (HomeController) super.getController();
+    }
 
+    /**
+     * @param url            -
+     * @param resourceBundle -
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        setController(new HomeController());
-//        List dockList = getController().getDockList();
+        setController(new HomeController());
+        setImage(imgLogo, Configs.LOGO_IMG_PATH);
+        this.setHomeScreenHandler(this);
+        //        List dockList = getController().getDockList();
         try {
-            insertTable(new HomeController().getDockList());
+            insertTable(this.getController().getDockList());
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        setImage(imgLogo,Configs.LOGO_IMG_PATH);
+
         imgLogo.setOnMouseClicked(mouseEvent -> {
             try {
-                new HomeScreenHandler(this.stage,Configs.HOME_SCREEN_PATH).show();
+                new HomeScreenHandler(this.stage, Configs.HOME_SCREEN_PATH).show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
-        btnSearch.setOnAction(event->{
+
+        btnSearch.setOnAction(event -> {
             System.out.println("clicked");
             String name = tfSearch.getText();
             try {
-                insertTable(new HomeController().searchByName(name));
+                insertTable(getController().searchDockByName(name));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         });
+
+        // change Dock Info Screen if double click on row of table
         tvDockList.setRowFactory(tv -> {
             TableRow<Dock> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     Dock rowData = row.getItem();
-                    System.out.println("Double click on: "+rowData.getDockName());
+                    System.out.println("Double click on: " + rowData.getDockName());
                     DockInfoScreenHandler dockInfoScreenHandler;
                     try {
                         dockInfoScreenHandler = new DockInfoScreenHandler(this.stage, Configs.DOCK_INFO_SCREEN_PATH);
-                        dockInfoScreenHandler.setHomeScreenHandler(this);
+//                        dockInfoScreenHandler.setHomeScreenHandler(this);
                         dockInfoScreenHandler.setPrev(this);
                         dockInfoScreenHandler.setInfo(rowData);
-                        dockInfoScreenHandler.setScreenTitle("Dock Infomation");
+                        dockInfoScreenHandler.setScreenTitle("Dock Information");
                         dockInfoScreenHandler.show();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             });
-            return row ;
+            return row;
         });
     }
 
-    private void insertTable(List listDock){
+    /**
+     * this method insert data into table.
+     *
+     * @param listDock - list of dock in database
+     */
+    private void insertTable(List listDock) {
         ObservableList<Dock> list = FXCollections.observableArrayList(listDock);
         colId.setCellValueFactory(new PropertyValueFactory<Dock, Integer>("id"));
         colDockName.setCellValueFactory(new PropertyValueFactory<Dock, String>("dockName"));

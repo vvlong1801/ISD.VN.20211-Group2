@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecobikerental.capstone_project.views.invoice.InvoiceScreenHandler">
+   <children>
+      <Pane layoutX="130.0" layoutY="144.0" prefHeight="60.0" style="-fx-background-color: #160C67;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <HBox alignment="CENTER" prefHeight="60.0" style="-fx-background-color: #e4e1e1;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="500.0" text="INVOICE" textFill="#160c67">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
+         <children>
+            <VBox maxHeight="-Infinity" prefWidth="400.0" spacing="20.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Renter" textFill="#160c67">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbRenter" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="40.0" prefWidth="150.0" text="VU VAN LONG" textFill="#160c67">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Card Number" textFill="#160c67">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbCardNumber" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="150.0" text="0983234567890" textFill="#160c67">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="250.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Deposit" textFill="#160c67">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbDeposit" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="150.0" text="3.000.000 VND" textFill="#160c67">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="310.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Rental Fees" textFill="#160c67">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbExpDate" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="150.0" text="45.000 VND" textFill="#160c67">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="370.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Refund" textFill="#160c67">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbRefund" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="150.0" text="2.955.000 VND" textFill="#160c67">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="80.0">
+                     <children>
+                        <Button fx:id="btnBack" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #160C67;" text="Back" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox maxHeight="-Infinity" prefWidth="400.0" spacing="20.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Bike Barcode" textFill="#160c67">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbBarcode" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="250.0" text="0987654321" textFill="#160c67">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Rental start time" textFill="#160c67">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbStartTime" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="250.0" text="9:23 AM - 15/12/2021" textFill="#160c67">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="250.0">
+                     <children>
+                        <Label fx:id="l" prefHeight="40.0" prefWidth="150.0" text="Return time" textFill="#160c67">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbReturnTime" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="250.0" text="5:21 PM - 15/12/2021" textFill="#160c67">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="310.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Rental Dock" textFill="#160c67">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbRentalDock" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="250.0" text="BACK KHOA UNIVERSITY" textFill="#160c67">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="370.0">
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Return Dock" textFill="#160c67">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbReturnDock" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="250.0" text="THUY LOI UNIVERSITY" textFill="#160c67">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0">
+                     <children>
+                        <Button fx:id="btnConfirm" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #160C67;" text="Confirm" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Pane prefHeight="60.0" style="-fx-background-color: #160C67;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <ImageView fx:id="imgLogo" fitWidth="130.0" layoutX="30.0" layoutY="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box,gray,8,0.0,0,4);" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../../../../../assets/images/Splash.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+   </children>
+</AnchorPane>
