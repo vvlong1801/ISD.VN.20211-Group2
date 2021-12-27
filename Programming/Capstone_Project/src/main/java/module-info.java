@@ -7,6 +7,10 @@ module ecobikerental.capstone_project {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
 
+    requires org.junit.jupiter.api;
+    requires org.junit.jupiter.params;
+    requires org.junit.platform.commons;
+
     opens ecobikerental.capstone_project to javafx.fxml;
     exports ecobikerental.capstone_project;
     exports ecobikerental.capstone_project.views;
