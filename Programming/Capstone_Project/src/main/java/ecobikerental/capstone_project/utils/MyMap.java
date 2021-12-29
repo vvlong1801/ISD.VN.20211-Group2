@@ -11,34 +11,37 @@ public class MyMap extends LinkedHashMap<String, Object> {
     /**
      * Return a {@link java.lang.String String} that represents the JSON object.
      *
-     * @author hieudm
-     *         https://hg.openjdk.java.net/jdk8/jdk8/jdk/file/tip/src/share/classes/java/util/Hashtable.java
      * @return a {@link java.lang.String String}.
+     *
+     * @author hieudm
+     * https://hg.openjdk.java.net/jdk8/jdk8/jdk/file/tip/src/share/classes/java/util/Hashtable.java
      */
     public String toJSON() {
         int max = size() - 1;
-        if (max == -1)
+        if (max == -1) {
             return "{}";
+        }
 
         StringBuilder sb = new StringBuilder();
         Iterator<Map.Entry<String, Object>> it = entrySet().iterator();
 
         sb.append('{');
-        for (int i = 0;; i++) {
+        for (int i = 0; ; i++) {
             Map.Entry<String, Object> e = it.next();
             String key = e.getKey();
             Object value = e.getValue();
             sb.append('"' + key.toString() + '"');
             sb.append(':');
-            sb.append(value instanceof MyMap ? ((MyMap) value).toJSON() : ('"' + value.toString() + '"'));
+            sb.append(value instanceof MyMap? ((MyMap) value).toJSON(): ('"' + value.toString() + '"'));
 
             //			if (value instanceof MyMap) {
             //				sb.append(((MyMap) value).toJSON());
             //			} else {
             //				sb.append('"' + value.toString() + '"');
             //			}
-            if (i == max)
+            if (i == max) {
                 return sb.append('}').toString();
+            }
             sb.append(",");
         }
     }
@@ -47,13 +50,15 @@ public class MyMap extends LinkedHashMap<String, Object> {
      * Return a {@link java.util.Map Map} that represents the mapping among
      * attribute names and their values of an object.
      *
-     * @author hieudm
-     *         https://stackoverflow.com/questions/52406467/convert-object-to-map-in-java
      * @param obj - an arbitrary {@link java.lang.Object Object}.
+     *
      * @return a {@link java.util.Map Map} mapping the attribute names and its
-     *         values.
+     * values.
+     *
      * @throws IllegalAccessException
      * @throws IllegalArgumentException
+     * @author hieudm
+     * https://stackoverflow.com/questions/52406467/convert-object-to-map-in-java
      */
     public static Map<String, Object> toMyMap(Object obj) throws IllegalArgumentException, IllegalAccessException {
         Map<String, Object> map = new MyMap();
@@ -79,12 +84,13 @@ public class MyMap extends LinkedHashMap<String, Object> {
      * Return a {@link java.lang.String String} that represents the term in between
      * 2 double quote.
      *
-     * @author hieudm
-     * @param
-     * str - {@link java.lang.String String}
-     * idx - the index of the open quote
+     * @param str - {@link java.lang.String String}
+     *            idx - the index of the open quote
+     *
      * @return the term as {@link java.lang.String String}
+     *
      * @throws IllegalArgumentException
+     * @author hieudm
      */
     private static String getNextTerm(String str, int idx) {
         if (str == null || idx >= str.length() || str.charAt(idx) != '"') {
@@ -103,21 +109,23 @@ public class MyMap extends LinkedHashMap<String, Object> {
             if (i == str.length()) {
                 throw new IllegalArgumentException("Cannot resolve the input.");
             }
-        } while (str.charAt(i) != '"');
+        } while(str.charAt(i) != '"');
 
         String result = sb.toString();
         offset = result.length() + 2; // update iterator with the term and the 2 double quotes
         return sb.toString();
     }
+
     /**
      * Return a {@link ecobikerental.capstone_project.utils.MyMap MyMap} that represents the interested substring in a {@link java.lang.String String}.
      *
-     * @author hieudm
-     * @param
-     * str - {@link java.lang.String String}
-     * idx - the index of the first character in the interested substring in the {@link java.lang.String String}
+     * @param str - {@link java.lang.String String}
+     *            idx - the index of the first character in the interested substring in the {@link java.lang.String String}
+     *
      * @return the term as {@link ecobikerental.capstone_project.utils.MyMap MyMap}
+     *
      * @throws IllegalArgumentException
+     * @author hieudm
      */
     public static MyMap toMyMap(String str, int idx) throws IllegalArgumentException {
         if (str == null || str.length() < 2 || str.charAt(idx) != '{') {
@@ -133,7 +141,7 @@ public class MyMap extends LinkedHashMap<String, Object> {
 
         i++;
         try {
-            while (true) {
+            while(true) {
                 // open quote
                 if (str.charAt(i) != '"') {
                     throw new IllegalArgumentException("Cannot resolve the input.");
@@ -201,5 +209,6 @@ public class MyMap extends LinkedHashMap<String, Object> {
         }
         return root;
     }
+
 
 }

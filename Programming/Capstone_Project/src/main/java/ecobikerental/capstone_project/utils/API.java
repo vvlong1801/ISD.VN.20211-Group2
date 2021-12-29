@@ -9,6 +9,7 @@ import java.io.Writer;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -18,6 +19,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 public class API {
+
     public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     private static Logger LOGGER = Utils.getLogger(Utils.class.getName());
 
@@ -49,8 +51,6 @@ public class API {
         return conn;
     }
 
-    int var;
-
     public static String post(String url, String data
                               //			, String token
     ) throws IOException {
@@ -68,7 +68,7 @@ public class API {
         writer.close();
         BufferedReader in;
         String inputLine;
-        if (conn.getResponseCode() / 100 == 2) {
+        if(conn.getResponseCode() / 100 == 2) {
             in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         } else {
             in = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
@@ -89,7 +89,7 @@ public class API {
 
             Field modifiersField = Field.class.getDeclaredField("modifiers");
             modifiersField.setAccessible(true);
-            modifiersField.setInt(methodsField, methodsField.getModifiers() & ~Modifier.FINAL);
+            modifiersField.setInt(methodsField, methodsField.getModifiers()&~ Modifier.FINAL);
 
             String[] oldMethods = (String[]) methodsField.get(null);
             Set<String> methodsSet = new LinkedHashSet<>(Arrays.asList(oldMethods));
@@ -97,8 +97,83 @@ public class API {
             String[] newMethods = methodsSet.toArray(new String[0]);
 
             methodsField.set(null/* static field */, newMethods);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
+        } catch(NoSuchFieldException|IllegalAccessException e) {
             throw new IllegalStateException(e);
         }
     }
+
+//    public static String post(String url, String data) throws MalformedURLException {
+////        String url="http://url.com";
+//        allowMethods("PATCH");
+//        URL object = new URL(url);
+//
+//        HttpURLConnection con = null;
+//        try {
+//            con = (HttpURLConnection) object.openConnection();
+//            con.setDoOutput(true);
+//            con.setDoInput(true);
+//            con.setRequestProperty("Content-Type", "application/json");
+//            con.setRequestProperty("Accept", "application/json");
+////            con.setRequestMethod("POST");
+////            con.setRequestProperty("X-HTTP-Method-Override", "PATCH");
+//            con.setRequestMethod("POST");
+//
+//        } catch (IOException e) {
+//            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+//            e.printStackTrace();
+//        }
+//
+//        OutputStreamWriter wr = null;
+//        try {
+//            wr = new OutputStreamWriter(con.getOutputStream());
+//            wr.write(data);
+//            wr.flush();
+//        } catch (IOException e) {
+//            System.out.println("BBBBBBBBB");
+//            e.printStackTrace();
+//        }
+//
+//        StringBuilder response = new StringBuilder();
+//        int HttpResult = 0;
+//        try {
+//            HttpResult = con.getResponseCode();
+//        } catch (IOException e) {
+//            System.out.println("coddddddddddddddddddddd");
+//            e.printStackTrace();
+//        }
+//        if (HttpResult == HttpURLConnection.HTTP_OK) {
+//            BufferedReader br = null;
+//            try {
+//                br = new BufferedReader(
+//                    new InputStreamReader(con.getInputStream(), "utf-8"));
+//            } catch (IOException e) {
+//                System.out.println("CCCCCCCCCCCAA");
+//                e.printStackTrace();
+//            }
+//            String line = null;
+//            while (true) {
+//                try {
+//                    if (!((line = br.readLine()) != null)) break;
+//                } catch (IOException e) {
+//                    System.out.println("UUUUUUUUUUUAAAA");
+//                    e.printStackTrace();
+//                }
+//                response.append(line + "\n");
+//            }
+//            try {
+//                br.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            //            System.out.println("" + response.toString());
+//            return response.toString();
+//        } else {
+//            try {
+//                System.out.println(con.getResponseMessage());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            return null;
+//        }
+//    }
 }

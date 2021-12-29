@@ -5,11 +5,11 @@ package ecobikerental.capstone_project.entity.payment;
  */
 public class PaymentTransaction {
     /**
-     * Represent for errorCode
+     * Represent for errorCode.
      */
     private String errorCode;
     /**
-     * Represent for card
+     * Represent for card.
      */
     private CreditCard card;
     /**

@@ -29,19 +29,10 @@ public class CreditCard {
      * @param dateExpired - the expired date of card
      */
     public CreditCard(String cardCode, String owner, String cvvCode, String dateExpired) {
-        super();
         this.cardCode = cardCode;
         this.owner = owner;
         this.cvvCode = cvvCode;
         this.dateExpired = dateExpired;
-    }
-
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
     }
 
     public String getCardCode() {
@@ -52,11 +43,19 @@ public class CreditCard {
         this.cardCode = cardCode;
     }
 
-    public int getCvvCode() {
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public String getCvvCode() {
         return cvvCode;
     }
 
-    public void setCvvCode(int cvvCode) {
+    public void setCvvCode(String cvvCode) {
         this.cvvCode = cvvCode;
     }
 

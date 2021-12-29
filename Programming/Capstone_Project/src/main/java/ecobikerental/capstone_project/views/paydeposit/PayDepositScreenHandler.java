@@ -50,6 +50,10 @@ public class PayDepositScreenHandler extends BaseScreenHandler implements Initia
                 e.printStackTrace();
             }
         });
+
+        btnBack.setOnMouseClicked(mouseEvent -> {
+            this.getPrev().show();
+        });
     }
 
 

@@ -46,9 +46,8 @@ public class ConfirmDepositScreenHandler extends BaseScreenHandler implements In
     }
 
     private void confirmPayDeposit() {
-        this.getController()
-            .payDeposit(RentBikeController.bike.getDeposit(), lbContent.getText(), lbCardNumber.getText(),
-                lbCardholderName.getText(),lbExpDate.getText(),);
+        this.getController().payDeposit(RentBikeController.bike.getDeposit(), lbContent.getText(), lbCardNumber.getText(),
+                lbCardholderName.getText(),lbExpDate.getText(),"774");
     }
 
     public void displayInfo(String cardCode, String owner, String dateExp, String content) {

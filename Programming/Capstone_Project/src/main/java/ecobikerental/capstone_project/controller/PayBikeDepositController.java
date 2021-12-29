@@ -93,7 +93,7 @@ public class PayBikeDepositController extends BaseController {
         Map<String, String> result = new Hashtable<String, String>();
         result.put("RESULT", "PAYMENT FAILED!");
         try {
-            this.card = new CreditCard(cardNumber, cardHolderName, Integer.parseInt(securityCode),
+            this.card = new CreditCard(cardNumber, cardHolderName, securityCode,
                 getExpirationDate(expirationDate));
 
             this.interbank = new InterbankSubsystem();

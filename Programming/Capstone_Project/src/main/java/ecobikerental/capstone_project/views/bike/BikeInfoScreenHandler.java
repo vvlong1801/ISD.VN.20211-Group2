@@ -68,6 +68,10 @@ public class BikeInfoScreenHandler extends BaseScreenHandler implements Initiali
                 e.printStackTrace();
             }
         });
+
+        btnBack.setOnMouseClicked(mouseEvent -> {
+            this.getPrev().show();
+        });
     }
 
     public void confirmRentBike() throws IOException {

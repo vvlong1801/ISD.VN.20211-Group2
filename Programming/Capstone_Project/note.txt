@@ -7,3 +7,6 @@
 
 - **App Code:** DR/hgxXfn+c=
 - **Secret Key:** BLRqOL6OIrI=
+
+- dùng association có gắn attribute thì không cần khai báo attribute trong biểu đồ lớp (field references)
+- global dependence mũi tên nét đứt
