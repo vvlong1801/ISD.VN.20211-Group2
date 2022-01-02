@@ -11,7 +11,6 @@ import ecobikerental.capstone_project.entity.dock.Dock;
 import ecobikerental.capstone_project.utils.Configs;
 import ecobikerental.capstone_project.views.BaseScreenHandler;
 import ecobikerental.capstone_project.views.bike.BikeInfoScreenHandler;
-import ecobikerental.capstone_project.views.home.HomeScreenHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -31,35 +30,29 @@ public class DockInfoScreenHandler extends BaseScreenHandler implements Initiali
     public Button btnViewBike;
     public Button btnBack;
 
-    public DockInfoScreenHandler(Stage stage, String screenPath) throws IOException {
+    private Dock dock;
+    private int numberOfBike;
+
+    public DockInfoScreenHandler(Stage stage, String screenPath, Dock dock) throws IOException {
         super(stage, screenPath);
+        this.dock = dock;
     }
 
     /**
-     * This method set info of selected dock to display on screen.
-     *
-     * @param dock -
+     * this method set information of screen.
      */
-    public void setInfo(Dock dock) {
-        lbName.setText(dock.getDockName());
-        lbAddress.setText(dock.getAddress());
-        lbArea.setText(String.valueOf(dock.getArea() + "km2"));
-        lbQuantity.setText(String.valueOf(dock.getQuantity()));
+    public void setInfo() {
+        lbName.setText(this.dock.getDockName());
+        lbAddress.setText(this.dock.getAddress());
+        lbArea.setText(this.dock.getArea() + " m^2");
+        lbQuantity.setText(this.numberOfBike + "/" + this.dock.getQuantity());
         setImage(imgDock, "assets/images/dock2.jpg");
-    }
-
-    /**
-     * @return HomeController
-     */
-    public RentBikeController getController() {
-        return (RentBikeController) super.getController();
+        setImage(imgLogo, Configs.LOGO_IMG_PATH);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setController(new RentBikeController());
-        //        setController(new HomeController());
-        setImage(imgLogo, Configs.LOGO_IMG_PATH);
 
         btnBack.setOnAction(event -> {
             this.getPrev().show();
@@ -67,7 +60,7 @@ public class DockInfoScreenHandler extends BaseScreenHandler implements Initiali
 
         imgLogo.setOnMouseClicked(mouseEvent -> {
             try {
-                new HomeScreenHandler(this.stage, Configs.HOME_SCREEN_PATH).show();
+                this.getHomeScreenHandler().show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -85,25 +78,25 @@ public class DockInfoScreenHandler extends BaseScreenHandler implements Initiali
 
         Bike bike = null;
         try {
-            bike = this.getController().getBikeByBarcode(barcode);
+            bike = this.getController().viewBike(this.dock.getDockName(), barcode);
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("The bike with barcode " + barcode + " could not found");
-            alert.setContentText("Please re-enter the barcode!!");
+            alert.setContentText("Please enter barcode again!!!");
             alert.showAndWait();
         }
 
         if (bike == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("" + barcode + " invalid");
-            alert.setContentText("Please re-enter the barcode!!");
+            alert.setTitle("This Barcode Invalid");
+            alert.setContentText("Please enter barcode again!!");
             alert.showAndWait();
         } else {
             BikeInfoScreenHandler bikeScreen = null;
             try {
                 bikeScreen = new BikeInfoScreenHandler(this.stage, Configs.BIKE_INFO_SCREEN_PATH);
                 bikeScreen.setBike(bike);
-                bikeScreen.displayInfo(barcode);
+                bikeScreen.setInfo();
                 bikeScreen.setController(this.getController());
                 bikeScreen.setPrev(this);
                 bikeScreen.setScreenTitle("Bike Screen");
@@ -112,5 +105,17 @@ public class DockInfoScreenHandler extends BaseScreenHandler implements Initiali
                 e.printStackTrace();
             }
         }
+    }
+
+
+    /**
+     * @return HomeController
+     */
+    public RentBikeController getController() {
+        return (RentBikeController) super.getController();
+    }
+
+    public void setNumberOfBike(int numberOfBike) {
+        this.numberOfBike = numberOfBike;
     }
 }

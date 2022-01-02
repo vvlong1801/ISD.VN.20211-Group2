@@ -34,5 +34,6 @@ public class Configs {
     public static final String INVOICE_SCREEN_PATH = "/ecobikerental/capstone_project/views/invoice.fxml";
 
     public static final String LOGO_IMG_PATH = "assets/images/Splash.jpg";
+    public static final String BIKE_RUNNING_IMG_PATH = "assets/images/bike_running.png";
 
 }

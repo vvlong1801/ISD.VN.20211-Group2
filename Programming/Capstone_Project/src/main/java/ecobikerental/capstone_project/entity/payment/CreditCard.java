@@ -9,7 +9,7 @@ public class CreditCard {
      */
     private String cardCode;
     /**
-     * Represent the owner of card
+     * Represent the owner of card.
      */
     private String owner;
     /**
@@ -17,7 +17,7 @@ public class CreditCard {
      */
     private String cvvCode;
     /**
-     * Represent the expired date of card
+     * Represent the expired date of card.
      */
     private String dateExpired;
 

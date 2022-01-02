@@ -1,11 +1,11 @@
-package ecobikerental.capstone_project.entity.db;
+package ecobikerental.capstone_project.dbconnnection_layer;
 
 import java.sql.*;
 
 /**
  * This class controls the process of connecting to Database
  */
-public class EcobikeRentalDB {
+public class DBConnector {
     /**
      * Represent for connect
      */
@@ -13,6 +13,7 @@ public class EcobikeRentalDB {
 
     /**
      * This method gets connection to Database
+     *
      * @return
      */
     public static Connection getConnection() {
@@ -31,10 +32,35 @@ public class EcobikeRentalDB {
     }
 
     /**
-     * Process the connection
+     * @param sql
+     *
+     * @return
+     *
+     * @throws SQLException
+     */
+    public static ResultSet query(final String sql) throws SQLException {
+        Statement statement = null;
+        try {
+            statement = DBConnector.getConnection().createStatement();
+            return statement.executeQuery(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private static void closeConnection() throws SQLException {
+        if (connect != null) {
+            connect.close();
+        }
+    }
+
+    /**
+     * Process the connection.
+     *
      * @param args - the arguments
      */
     public static void main(String[] args) {
-        EcobikeRentalDB.getConnection();
+        DBConnector.getConnection();
     }
 }

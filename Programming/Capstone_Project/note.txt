@@ -10,3 +10,95 @@
 
 - dùng association có gắn attribute thì không cần khai báo attribute trong biểu đồ lớp (field references)
 - global dependence mũi tên nét đứt
+========================================================================================================
+module ecobikerental.capstone_project {
+    requires javafx.controls;
+    requires javafx.fxml;
+
+    requires org.controlsfx.controls;
+    requires validatorfx;
+    requires org.kordamp.bootstrapfx.core;
+    requires java.sql;
+    requires com.google.gson;
+
+    opens ecobikerental.capstone_project to javafx.fxml;
+    exports ecobikerental.capstone_project;
+    exports ecobikerental.capstone_project.views;
+    opens ecobikerental.capstone_project.views to javafx.fxml;
+    exports ecobikerental.capstone_project.views.home;
+    opens ecobikerental.capstone_project.views.home to javafx.fxml;
+    opens ecobikerental.capstone_project.entity.dock to javafx.base;
+    exports ecobikerental.capstone_project.views.dock;
+    exports ecobikerental.capstone_project.views.bike;
+    exports ecobikerental.capstone_project.views.paydeposit;
+}
+=========================================================================================================
+- Thread: luồng dữ liệu
+- Synchronized: đồng bộ đa luồng
+
+
+
+=========================================================================================================
+- Dock
+    - get list dock
+- Bike
+    - searchByBikeCode
+        - input: bikecode
+        - output: type, barcode, licensePlate, dockName, pin, deposit
+    - getListBikeInDock
+        - input: dockId
+        - output: list bike
+    - countBikeByType
+        - input: type
+        - output: numberOfBike
+    - updateBike (dockId = null) - khi thuê xe
+        - input: bikeCode
+    - updateBike (dockId) - khi trả xe
+        - input: bikeCode, dockReturnId
+- Invoice
+    - save
+        - input: invoice
+- Payment
+    - saveTransaction:
+        - input: transaction (pay deposit, refund )
+
+===============================================================================================
+30' đầu => 10.000
+cứ mỗi 15' tiếp => 3000
+
+1h25' => 30' + 55' => 15.000 + ([55/15]+1)*3000 = 27.000
+      => 30' + 15' + 15' + 15' +10' => 27.000
+===============================================================================================
+--JDBC--
+1. mở kết nối database
+Connection conn = DriverManager.getConnection("jdbc:mysql:....");
+
+2. tạo truy vấn
+String sql = "....";
+- tạo trạng thái sẵn sàng truy vấn
+    - select:
+        - Statement stmt = conn.createStatement();
+        - ResultSet rs = stmt.executeQuery(sql);
+    - insert, update, delete: PreparedStatement pstmt = conn.prepareStatement(sql)
+
+3. đóng kết nối
+conn.close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

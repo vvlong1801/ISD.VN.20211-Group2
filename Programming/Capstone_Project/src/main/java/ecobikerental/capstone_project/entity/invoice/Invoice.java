@@ -1,7 +1,6 @@
 package ecobikerental.capstone_project.entity.invoice;
 
 import ecobikerental.capstone_project.entity.bike.Bike;
-import ecobikerental.capstone_project.entity.dock.Dock;
 import ecobikerental.capstone_project.entity.payment.PaymentTransaction;
 
 /**
@@ -12,38 +11,34 @@ public class Invoice {
      * Represent for bike
      */
     private Bike bike;
+    private String rentalTime;
+    private int rentalFee;
     /**
-     * Represent for dock
-     */
-    private Dock dock;
-    /**
-     * Represent for payment transaction
+     * Represent for payment transaction.
      */
     private PaymentTransaction payDepositTransaction;
     private PaymentTransaction refundTransaction;
 
-    private Invoice instance = new Invoice();
-//    /**.
-//     * Constructors with 3 arguments
-//     * @param bike - the bike that user rented
-//     * @param dock - the dock
-//     * @param transaction - the payment/refundment transaction
-//     */
-//    private Invoice(Bike bike, Dock dock, PaymentTransaction transaction) {
-//        this.bike = bike;
-//        this.dock = dock;
-//        this.transaction = transaction;
-//    }
+    private static Invoice instance = new Invoice();
+
+    private Invoice() {
+    }
+
 
     /**
-     * This method saves the invoice
+     * This method saves the invoice.
      */
-    public void save(){
+    public void save() {
 
     }
 
-    public Invoice getInstance() {
+
+    public static Invoice getInstance() {
         return instance;
+    }
+
+    public static void setInstance(Invoice instance) {
+        Invoice.instance = instance;
     }
 
     public Bike getBike() {
@@ -52,14 +47,6 @@ public class Invoice {
 
     public void setBike(Bike bike) {
         this.bike = bike;
-    }
-
-    public Dock getDock() {
-        return dock;
-    }
-
-    public void setDock(Dock dock) {
-        this.dock = dock;
     }
 
     public PaymentTransaction getPayDepositTransaction() {
@@ -76,5 +63,21 @@ public class Invoice {
 
     public void setRefundTransaction(PaymentTransaction refundTransaction) {
         this.refundTransaction = refundTransaction;
+    }
+
+    public void setRentalTime(String rentalTime) {
+        this.rentalTime = rentalTime;
+    }
+
+    public String getRentalTime() {
+        return rentalTime;
+    }
+
+    public int getRentalFee() {
+        return rentalFee;
+    }
+
+    public void setRentalFee(int rentalFee) {
+        this.rentalFee = rentalFee;
     }
 }

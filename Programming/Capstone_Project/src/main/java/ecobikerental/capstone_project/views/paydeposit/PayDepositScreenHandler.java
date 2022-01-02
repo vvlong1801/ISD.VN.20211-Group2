@@ -12,8 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -24,7 +22,7 @@ public class PayDepositScreenHandler extends BaseScreenHandler implements Initia
     public ComboBox<String> cbbIssuingBank;
     public TextField tfSecurityCode;
     public TextField tfExpirationDate;
-    public TextArea taContent;
+    public TextField tfContent;
     public Button btnBack;
     public Button btnContinue;
     public ImageView imgLogo;
@@ -43,6 +41,7 @@ public class PayDepositScreenHandler extends BaseScreenHandler implements Initia
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setImage(imgLogo, Configs.LOGO_IMG_PATH);
         btnContinue.setOnAction(event -> {
             try {
                 requestToPayDeposit();
@@ -71,12 +70,13 @@ public class PayDepositScreenHandler extends BaseScreenHandler implements Initia
         String cardCode = tfCardNumber.getText();
         String cvvCode = tfSecurityCode.getText();
         String expDate = tfExpirationDate.getText();
-        String content = taContent.getText();
+        String content = tfContent.getText();
 
-        if (this.getController().validateCreditCardInfo(expDate, cvvCode)) {
+        if (this.getController().checkCardInfo(expDate, cvvCode)) {
+            CreditCard card = new CreditCard(cardCode, owner, cvvCode, expDate);
             ConfirmDepositScreenHandler confirmDepositScreen =
-                new ConfirmDepositScreenHandler(this.stage, Configs.DEPOSIT_CONFIRM_SCREEN_PATH);
-            confirmDepositScreen.displayInfo(owner, cardCode, expDate, content);
+                new ConfirmDepositScreenHandler(this.stage, Configs.DEPOSIT_CONFIRM_SCREEN_PATH, card, content);
+            confirmDepositScreen.setInfo();
             confirmDepositScreen.setPrev(this);
             confirmDepositScreen.setController(this.getController());
             confirmDepositScreen.setScreenTitle("Confirm Pay Deposit");
@@ -88,6 +88,7 @@ public class PayDepositScreenHandler extends BaseScreenHandler implements Initia
             alert.showAndWait();
         }
     }
+
     //    public void requestToPayBikeDeposit(int depositFees) throws IOException {
     //
     //    }

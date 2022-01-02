@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Hashtable;
 
 import ecobikerental.capstone_project.controller.BaseController;
+import ecobikerental.capstone_project.utils.Configs;
 import ecobikerental.capstone_project.views.home.HomeScreenHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -21,10 +22,6 @@ public class BaseScreenHandler extends FXMLScreenHandler {
      * stage that scene show.
      */
     protected final Stage stage;
-    /**
-     * call homePage.
-     */
-    private HomeScreenHandler homeScreenHandler;
     /**
      * controller of screen.
      */
@@ -73,15 +70,6 @@ public class BaseScreenHandler extends FXMLScreenHandler {
     }
 
     /**
-     * this method set HomeScreenHandler for app.
-     *
-     * @param homeScreenHandler -
-     */
-    public void setHomeScreenHandler(HomeScreenHandler homeScreenHandler) {
-        this.homeScreenHandler = homeScreenHandler;
-    }
-
-    /**
      * this method set title for scene.
      *
      * @param title
@@ -115,7 +103,7 @@ public class BaseScreenHandler extends FXMLScreenHandler {
         this.prev = prev;
     }
 
-    public HomeScreenHandler getHomeScreenHandler() {
-        return homeScreenHandler;
+    public HomeScreenHandler getHomeScreenHandler() throws IOException {
+        return new HomeScreenHandler(this.stage, Configs.HOME_SCREEN_PATH);
     }
 }

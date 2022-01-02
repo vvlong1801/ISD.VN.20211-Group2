@@ -4,7 +4,7 @@ import ecobikerental.capstone_project.entity.payment.CreditCard;
 import ecobikerental.capstone_project.entity.payment.PaymentTransaction;
 import ecobikerental.capstone_project.subsystem.interbank.InterbankSubsystemController;
 
-public class InterbankSubsystem implements InterbankInterface{
+public class InterbankSubsystem implements InterbankInterface {
 
     /**
      * Represent the controller of the subsystem

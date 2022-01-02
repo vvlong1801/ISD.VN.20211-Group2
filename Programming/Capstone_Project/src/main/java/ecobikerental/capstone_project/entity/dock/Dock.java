@@ -6,9 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import ecobikerental.capstone_project.entity.db.EcobikeRentalDB;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import ecobikerental.capstone_project.dbconnnection_layer.DBConnector;
 
 /**
  * Entity Dock
@@ -155,9 +153,9 @@ public class Dock {
      *
      * @throws SQLException - Exception relates to SQL
      */
-    public List getDockList() throws SQLException {
-        List dockList = new ArrayList<>();
-        Statement stmt = EcobikeRentalDB.getConnection().createStatement();
+    public List<Dock> getDockList() throws SQLException {
+        List<Dock> dockList = new ArrayList<>();
+        Statement stmt = DBConnector.getConnection().createStatement();
         String query = "select * from dock";
         ResultSet res = stmt.executeQuery(query);
         Dock dock;
@@ -180,7 +178,7 @@ public class Dock {
      */
     public List getDockByName(final String name) throws SQLException {
         List dockList = new ArrayList<>();
-        Statement stmt = EcobikeRentalDB.getConnection().createStatement();
+        Statement stmt = DBConnector.getConnection().createStatement();
         String query = "select * from dock where dock_name like \'%" + name + "%\'";
         ResultSet res = stmt.executeQuery(query);
         Dock dock;

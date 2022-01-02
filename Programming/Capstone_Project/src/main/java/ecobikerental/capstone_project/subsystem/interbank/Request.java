@@ -21,6 +21,7 @@ public class Request {
     private String makeHashCode() {
         Gson gson = new Gson();
         String transactionJO = gson.toJson(this.transaction, Transaction.class);
+        System.out.println(transactionJO);
         JsonObject jsonObject = new JsonObject();
 
         jsonObject.addProperty("secretKey", Configs.SECRETKEY);
@@ -28,13 +29,13 @@ public class Request {
         return Utils.md5(jsonObject.toString());
     }
 
-    public String makeRequestJson(){
+    public String makeRequestJson() {
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         return gson.toJson(this, Request.class);
     }
+
     public static void main(String[] args) {
-        Transaction transaction = new Transaction("vn_group2_2021", "Group 2",
-            "774", "1125", "pay", "test pay", 100);
+        Transaction transaction = new Transaction("vn_group2_2021", "Group 2", "774", "1125", "pay", "test pay", 100);
         Request request = new Request(transaction);
         String test = request.makeHashCode();
         System.out.println(Utils.md5(test));

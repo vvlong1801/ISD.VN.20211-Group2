@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import ecobikerental.capstone_project.controller.HomeController;
 import ecobikerental.capstone_project.entity.dock.Dock;
 import ecobikerental.capstone_project.utils.Configs;
+import ecobikerental.capstone_project.utils.Utils;
 import ecobikerental.capstone_project.views.BaseScreenHandler;
 import ecobikerental.capstone_project.views.dock.DockInfoScreenHandler;
 import javafx.collections.FXCollections;
@@ -103,8 +104,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setController(new HomeController());
         setImage(imgLogo, Configs.LOGO_IMG_PATH);
-        this.setHomeScreenHandler(this);
-        //        List dockList = getController().getDockList();
+
         try {
             insertTable(this.getController().getDockList());
         } catch (SQLException e) {
@@ -112,8 +112,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         }
 
         imgLogo.setOnMouseClicked(mouseEvent -> {
+            System.out.println("click logo");
             try {
-                new HomeScreenHandler(this.stage, Configs.HOME_SCREEN_PATH).show();
+                this.getHomeScreenHandler().show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -123,7 +124,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             System.out.println("clicked");
             String name = tfSearch.getText();
             try {
-                insertTable(getController().searchDockByName(name));
+                insertTable(getController().searchDock(name));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -138,13 +139,13 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
                     System.out.println("Double click on: " + rowData.getDockName());
                     DockInfoScreenHandler dockInfoScreenHandler;
                     try {
-                        dockInfoScreenHandler = new DockInfoScreenHandler(this.stage, Configs.DOCK_INFO_SCREEN_PATH);
-//                        dockInfoScreenHandler.setHomeScreenHandler(this);
+                        dockInfoScreenHandler = new DockInfoScreenHandler(this.stage, Configs.DOCK_INFO_SCREEN_PATH, rowData);
+                        dockInfoScreenHandler.setNumberOfBike(this.getController().getNumberOfBike(rowData.getDockName()));
+                        dockInfoScreenHandler.setInfo();
                         dockInfoScreenHandler.setPrev(this);
-                        dockInfoScreenHandler.setInfo(rowData);
                         dockInfoScreenHandler.setScreenTitle("Dock Information");
                         dockInfoScreenHandler.show();
-                    } catch (IOException e) {
+                    } catch (IOException | SQLException e) {
                         e.printStackTrace();
                     }
                 }
@@ -158,7 +159,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
      *
      * @param listDock - list of dock in database
      */
-    private void insertTable(List listDock) {
+    private void insertTable(final List listDock) {
         ObservableList<Dock> list = FXCollections.observableArrayList(listDock);
         colId.setCellValueFactory(new PropertyValueFactory<Dock, Integer>("id"));
         colDockName.setCellValueFactory(new PropertyValueFactory<Dock, String>("dockName"));
@@ -167,4 +168,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         colQuantity.setCellValueFactory(new PropertyValueFactory<Dock, Integer>("quantity"));
         tvDockList.setItems(list);
     }
+
+//    public static void main(String[] args) {
+//        String barcode = "1234567890098";
+//        System.out.println(Utils.md5(barcode));
+//    }
 }

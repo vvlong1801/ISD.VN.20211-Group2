@@ -2,17 +2,22 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecobikerental.capstone_project.views.invoice.InvoiceScreenHandler">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="130.0" layoutY="144.0" prefHeight="60.0" style="-fx-background-color: #160C67;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <HBox alignment="CENTER" prefHeight="60.0" style="-fx-background-color: #e4e1e1;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
@@ -26,179 +31,110 @@
       </HBox>
       <HBox alignment="CENTER" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
          <children>
-            <VBox maxHeight="-Infinity" prefWidth="400.0" spacing="20.0">
+            <VBox alignment="CENTER">
                <children>
-                  <HBox>
+                  <GridPane alignment="CENTER" prefWidth="500.0" vgap="5.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.79998779296875" minWidth="10.0" prefWidth="168.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="432.0" minWidth="10.0" prefWidth="432.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" percentHeight="0.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
                         <Label prefHeight="40.0" prefWidth="150.0" text="Renter" textFill="#160c67">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lbRenter" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="40.0" prefWidth="150.0" text="VU VAN LONG" textFill="#160c67">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="10.0">
-                     <children>
-                        <Label prefHeight="40.0" prefWidth="150.0" text="Card Number" textFill="#160c67">
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Card Number" textFill="#160c67" GridPane.rowIndex="4">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lbCardNumber" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="150.0" text="0983234567890" textFill="#160c67">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="250.0">
-                     <children>
-                        <Label prefHeight="40.0" prefWidth="150.0" text="Deposit" textFill="#160c67">
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Deposit" textFill="#160c67" GridPane.rowIndex="6">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lbDeposit" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="150.0" text="3.000.000 VND" textFill="#160c67">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="310.0">
-                     <children>
-                        <Label prefHeight="40.0" prefWidth="150.0" text="Rental Fees" textFill="#160c67">
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Rental Fees" textFill="#160c67" GridPane.rowIndex="8">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lbExpDate" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="150.0" text="45.000 VND" textFill="#160c67">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="370.0">
-                     <children>
-                        <Label prefHeight="40.0" prefWidth="150.0" text="Refund" textFill="#160c67">
+                        <Label prefHeight="40.0" prefWidth="150.0" text="Refund" textFill="#160c67" GridPane.rowIndex="10">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lbRefund" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="150.0" text="2.955.000 VND" textFill="#160c67">
+                        <Label fx:id="lbRenter" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="40.0" prefWidth="390.0" text="VU VAN LONG" textFill="#160c67" GridPane.columnIndex="1">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="80.0">
-                     <children>
-                        <Button fx:id="btnBack" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #160C67;" text="Back" textFill="WHITE">
+                        <Label fx:id="lbCardNumber" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="390.0" text="0983234567890" textFill="#160c67" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox maxHeight="-Infinity" prefWidth="400.0" spacing="20.0">
-               <children>
-                  <HBox>
-                     <children>
-                        <Label prefHeight="40.0" prefWidth="150.0" text="Bike Barcode" textFill="#160c67">
+                        </Label>
+                        <Label fx:id="lbDeposit" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="393.0" text="3.000.000 VND" textFill="#160c67" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbRentaLFees" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="384.0" text="45.000 VND" textFill="#160c67" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbRefund" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="398.0" text="2.955.000 VND" textFill="#160c67" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="39.0" prefWidth="123.0" text="Bike Barcode" textFill="#160c67" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lbBarcode" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="250.0" text="0987654321" textFill="#160c67">
+                        <Label fx:id="lbBikeBarcode" alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="390.0" text="0987654321123" textFill="#160c67" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
+                        <Line endX="399.4999694824219" startX="-100.0" stroke="#160c67" GridPane.rowIndex="1" />
+                        <Line endX="399.4999694824219" layoutX="111.0" layoutY="60.0" startX="-100.0" stroke="#160c67" GridPane.rowIndex="3" />
+                        <Line endX="399.4999694824219" layoutX="111.0" layoutY="135.0" startX="-100.0" stroke="#160c67" GridPane.rowIndex="5" />
+                        <Line endX="399.4999694824219" layoutX="111.0" layoutY="224.0" startX="-100.0" stroke="#160c67" GridPane.rowIndex="7" />
+                        <Line endX="399.4999694824219" layoutX="111.0" layoutY="314.0" startX="-100.0" startY="-0.43391990661621094" stroke="#160c67" GridPane.rowIndex="9" />
+                        <Line endX="399.4999694824219" layoutX="111.0" layoutY="300.0" startX="-100.0" startY="-0.43391990661621094" stroke="#160c67" GridPane.rowIndex="11" />
                      </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="10.0">
-                     <children>
-                        <Label prefHeight="40.0" prefWidth="150.0" text="Rental start time" textFill="#160c67">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lbStartTime" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="250.0" text="9:23 AM - 15/12/2021" textFill="#160c67">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="250.0">
-                     <children>
-                        <Label fx:id="l" prefHeight="40.0" prefWidth="150.0" text="Return time" textFill="#160c67">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lbReturnTime" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="250.0" text="5:21 PM - 15/12/2021" textFill="#160c67">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="310.0">
-                     <children>
-                        <Label prefHeight="40.0" prefWidth="150.0" text="Rental Dock" textFill="#160c67">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lbRentalDock" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="250.0" text="BACK KHOA UNIVERSITY" textFill="#160c67">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="370.0">
-                     <children>
-                        <Label prefHeight="40.0" prefWidth="150.0" text="Return Dock" textFill="#160c67">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lbReturnDock" alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="250.0" text="THUY LOI UNIVERSITY" textFill="#160c67">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="80.0">
-                     <children>
-                        <Button fx:id="btnConfirm" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #160C67;" text="Confirm" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Button>
-                     </children>
+                  </GridPane>
+                  <Button fx:id="btnReturnHome" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: #160C67; -fx-background-radius: 5;" text="Return HOME" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                      <VBox.margin>
-                        <Insets />
+                        <Insets top="30.0" />
                      </VBox.margin>
-                  </HBox>
+                  </Button>
                </children>
             </VBox>
          </children>
@@ -211,6 +147,9 @@
          <viewport>
             <Rectangle2D />
          </viewport>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
    </children>
 </AnchorPane>
