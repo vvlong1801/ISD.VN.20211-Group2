@@ -6,9 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import ecobikerental.capstone_project.entity.db.EcobikeRentalDB;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import ecobikerental.capstone_project.dbconnnection_layer.DBConnector;
 
 /**
  * Entity Dock
@@ -37,11 +35,12 @@ public class Dock {
 
     /**
      * Constructor with 5 arguments
-     * @param id the id of dock
+     *
+     * @param id       the id of dock
      * @param dockName - the name of dock
-     * @param address - the address of dock
+     * @param address  - the address of dock
      * @param quantity - the quantity of bike
-     * @param area - the area of dock
+     * @param area     - the area of dock
      */
     public Dock(int id, String dockName, String address, int quantity, int area) {
         this.id = id;
@@ -54,10 +53,12 @@ public class Dock {
     /**
      * Default constructor for class Dock
      */
-    public Dock() {}
+    public Dock() {
+    }
 
     /**
      * Getter for id
+     *
      * @return id
      */
     public int getId() {
@@ -66,6 +67,7 @@ public class Dock {
 
     /**
      * Setter for id
+     *
      * @param id - the id of dock
      */
     public void setId(int id) {
@@ -74,6 +76,7 @@ public class Dock {
 
     /**
      * Getter for dockName
+     *
      * @return dockName
      */
     public String getDockName() {
@@ -82,6 +85,7 @@ public class Dock {
 
     /**
      * Setter for dockName
+     *
      * @param dockName - the name of dock
      */
     public void setDockName(String dockName) {
@@ -90,6 +94,7 @@ public class Dock {
 
     /**
      * Getter for address
+     *
      * @return address
      */
     public String getAddress() {
@@ -98,6 +103,7 @@ public class Dock {
 
     /**
      * Setter for address
+     *
      * @param address - the address of dock
      */
     public void setAddress(String address) {
@@ -106,6 +112,7 @@ public class Dock {
 
     /**
      * Getter for quantity
+     *
      * @return quantity
      */
     public int getQuantity() {
@@ -114,6 +121,7 @@ public class Dock {
 
     /**
      * Setter for quantity
+     *
      * @param quantity - the quantity
      */
     public void setQuantity(int quantity) {
@@ -122,6 +130,7 @@ public class Dock {
 
     /**
      * Getter for area
+     *
      * @return area
      */
     public int getArea() {
@@ -130,6 +139,7 @@ public class Dock {
 
     /**
      * Setter for area
+     *
      * @param area - the area of dock
      */
     public void setArea(int area) {
@@ -138,18 +148,20 @@ public class Dock {
 
     /**
      * This methods gets list of docks
+     *
      * @return dockList - the list of docks
+     *
      * @throws SQLException - Exception relates to SQL
      */
-    public List getDockList() throws SQLException {
-        List dockList = new ArrayList<>();
-        Statement stmt = EcobikeRentalDB.getConnection().createStatement();
+    public List<Dock> getDockList() throws SQLException {
+        List<Dock> dockList = new ArrayList<>();
+        Statement stmt = DBConnector.getConnection().createStatement();
         String query = "select * from dock";
-        ResultSet res =stmt.executeQuery(query);
+        ResultSet res = stmt.executeQuery(query);
         Dock dock;
-        while(res.next()){
-                dock = new Dock(res.getInt("dockId"),res.getString("dock_name"),
-                res.getString("address"),res.getInt("quantity"),res.getInt("area"));
+        while(res.next()) {
+            dock = new Dock(res.getInt("id"), res.getString("name"), res.getString("address"), res.getInt("quantity"),
+                res.getInt("area"));
             dockList.add(dock);
         }
         return dockList;
@@ -157,19 +169,22 @@ public class Dock {
 
     /**
      * This method searchs dock by name
+     *
      * @param name - the name of dock
+     *
      * @return dockList
+     *
      * @throws SQLException - Exception relates to SQL
      */
-    public List searchByName(String name) throws SQLException {
+    public List getDockByName(final String name) throws SQLException {
         List dockList = new ArrayList<>();
-        Statement stmt = EcobikeRentalDB.getConnection().createStatement();
-        String query = "select * from dock where dock_name like \'%"+name+"%\'";
-        ResultSet res =stmt.executeQuery(query);
+        Statement stmt = DBConnector.getConnection().createStatement();
+        String query = "select * from dock where dock_name like \'%" + name + "%\'";
+        ResultSet res = stmt.executeQuery(query);
         Dock dock;
-        while(res.next()){
-            dock = new Dock(res.getInt("dockId"),res.getString("dock_name"),
-                res.getString("address"),res.getInt("quantity"),res.getInt("area"));
+        while(res.next()) {
+            dock = new Dock(res.getInt("id"), res.getString("name"), res.getString("address"), res.getInt("quantity"),
+                res.getInt("area"));
             dockList.add(dock);
         }
         return dockList;

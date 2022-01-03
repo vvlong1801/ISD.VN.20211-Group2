@@ -2,10 +2,10 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,128 +15,160 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="ecobikerental.capstone_project.views.paydeposit.PayDepositScreenHandler">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="110.0" layoutY="124.0" prefHeight="60.0" style="-fx-background-color: #160C67;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Pane layoutX="325.0" layoutY="140.0" prefHeight="60.0" style="-fx-background-color: #e4e1e1;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+      <HBox alignment="CENTER" prefHeight="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="390.0" layoutY="10.0" prefHeight="40.0" prefWidth="500.0" text="ENTER CREDIT CARD INFORMATION" textFill="#160c67">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="500.0" text="ENTER CREDIT CARD INFORMATION" textFill="#160c67">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
          </children>
-      </Pane>
-      <Pane prefHeight="620.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
+      </HBox>
+      <HBox alignment="CENTER" layoutY="120.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
          <children>
-            <VBox layoutX="250.0" layoutY="60.0" prefHeight="500.0" prefWidth="780.0" spacing="20.0">
+            <VBox alignment="CENTER_LEFT" prefWidth="550.0" spacing="10.0">
                <children>
-                  <HBox>
+                  <VBox>
                      <children>
                         <Label prefHeight="40.0" prefWidth="230.0" text="Cardholder Name" textFill="#160c67">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="tfCardholderName" prefHeight="40.0" prefWidth="550.0" style="-fx-border-radius: 5; -fx-border-color: #160C67;">
+                        <TextField fx:id="tfCardholderName" prefHeight="40.0" prefWidth="550.0" promptText="Group 2" style="-fx-border-radius: 5; -fx-border-color: #160C67;" text="Group 2">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
                      </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="10.0">
+                  </VBox>
+                  <VBox>
                      <children>
-                        <Label fx:id="tfCardNumber" prefHeight="40.0" prefWidth="230.0" text="Card Number" textFill="#160c67">
+                        <Label prefHeight="40.0" prefWidth="230.0" text="Card Number" textFill="#160c67">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="40.0" prefWidth="550.0" style="-fx-border-color: #160C67; -fx-border-radius: 5;">
+                        <TextField fx:id="tfCardNumber" prefHeight="40.0" prefWidth="550.0" promptText="vn_group2_2021" style="-fx-border-color: #160C67; -fx-border-radius: 5;" text="vn_group2_2021">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
                      </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="426.0">
+                  </VBox>
+                  <VBox>
                      <children>
-                        <Label fx:id="cbbIssuingBank" prefHeight="40.0" prefWidth="230.0" text="Issuing Bank" textFill="#160c67">
+                        <Label prefHeight="40.0" prefWidth="230.0" text="Security Code" textFill="#160c67">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <ComboBox prefHeight="40.0" prefWidth="550.0" style="-fx-border-color: #160C67; -fx-background-color: #ffffff; -fx-border-radius: 5;" />
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="70.0">
-                     <children>
-                        <Label fx:id="tfSecurityCode" prefHeight="40.0" prefWidth="230.0" text="Security Code" textFill="#160c67">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <TextField prefHeight="40.0" prefWidth="550.0" style="-fx-border-color: #160C67; -fx-border-radius: 5;">
+                        <TextField fx:id="tfSecurityCode" prefHeight="40.0" prefWidth="550.0" promptText="***" style="-fx-border-color: #160C67; -fx-border-radius: 5;" text="774">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
                      </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="70.0">
+                  </VBox>
+                  <HBox spacing="200.0">
                      <children>
-                        <Label fx:id="tfExpirationDate" prefHeight="40.0" prefWidth="230.0" text="Expiration Date" textFill="#160c67">
+                        <VBox prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="40.0" prefWidth="230.0" text="Expiration Date" textFill="#160c67">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tfExpirationDate" prefHeight="40.0" prefWidth="550.0" promptText="MM/YY" style="-fx-border-color: #160C67; -fx-border-radius: 5;" text="11/25">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Label prefHeight="40.0" text="Pay Method" textFill="#160c67">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton mnemonicParsing="false" selected="true" text="Credit Card" textFill="#160c67">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="30.0" />
+                                 </padding>
+                              </RadioButton>
+                              <RadioButton disable="true" mnemonicParsing="false" text="Momo" textFill="#160c67">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="30.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </RadioButton>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox>
+                     <children>
+                        <Label prefHeight="40.0" prefWidth="230.0" text="Content" textFill="#160c67">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="40.0" prefWidth="550.0" style="-fx-border-color: #160C67; -fx-border-radius: 5;">
+                        <TextField fx:id="tfContent" alignment="TOP_LEFT" prefHeight="80.0" prefWidth="550.0" promptText="abcxyz" style="-fx-border-color: #160C67; -fx-border-radius: 5;" text="abcxyz">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
                      </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="444.0" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="taContent" prefHeight="40.0" prefWidth="230.0" text="Content" textFill="#160c67">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <TextArea prefHeight="80.0" prefWidth="550.0" style="-fx-border-radius: 5; -fx-border-color: #160C67;">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </TextArea>
-                     </children>
-                  </HBox>
+                  </VBox>
                   <HBox>
                      <children>
-                        <Button fx:id="btnBack" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #160C67;" text="Back" textFill="WHITE">
+                        <Button fx:id="btnBack" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: #160C67; -fx-background-radius: 5;" text="Back" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
                         </Button>
-                        <Button fx:id="btnContinue" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #160C67;" text="Continue" textAlignment="CENTER" textFill="WHITE">
+                        <Button fx:id="btnContinue" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: #160C67; -fx-background-radius: 5;" text="Continue" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="530.0" />
+                              <Insets left="354.0" />
                            </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
                         </Button>
                      </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>
          </children>
-         <padding>
-            <Insets bottom="60.0" left="250.0" right="250.0" top="60.0" />
-         </padding>
-      </Pane>
-      <Pane layoutX="104.0" layoutY="323.0" prefHeight="60.0" style="-fx-background-color: #160C67;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      </HBox>
       <ImageView fx:id="imgLogo" fitWidth="130.0" layoutX="10.0" layoutY="10.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box,gray,8,0.0,0,4);" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../../../../../../assets/images/Splash.jpg" />
@@ -145,5 +177,6 @@ fx:controller="ecobikerental.capstone_project.views.paydeposit.PayDepositScreenH
             <Rectangle2D />
          </viewport>
       </ImageView>
+      <Pane layoutX="10.0" layoutY="10.0" prefHeight="60.0" style="-fx-background-color: #160C67;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
 </AnchorPane>

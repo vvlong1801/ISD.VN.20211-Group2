@@ -1,60 +1,67 @@
 package ecobikerental.capstone_project.controller;
 
-import ecobikerental.capstone_project.entity.bike.Bike;
+import java.sql.SQLException;
+import java.util.Hashtable;
+import java.util.Map;
+
+import ecobikerental.capstone_project.business_layer.InvoiceBL;
+import ecobikerental.capstone_project.dbconnnection_layer.bike.BikeDL;
+import ecobikerental.capstone_project.dbconnnection_layer.dock.DockDL;
+import ecobikerental.capstone_project.dbconnnection_layer.invoice.InvoiceDL;
+import ecobikerental.capstone_project.dbconnnection_layer.payment.PaymentTransactionDL;
 import ecobikerental.capstone_project.entity.invoice.Invoice;
+import ecobikerental.capstone_project.entity.payment.PaymentTransaction;
+import ecobikerental.capstone_project.exception.PaymentException;
+import ecobikerental.capstone_project.exception.UnrecognizedException;
+import ecobikerental.capstone_project.subsystem.InterbankInterface;
+import ecobikerental.capstone_project.subsystem.InterbankSubsystem;
 
 /**
  * This class controls the return bike process
  */
-public class ReturnBikeController {
-    /**
-     * Represent for invoice
-     */
-    private Invoice invoice;
+public class ReturnBikeController extends BaseController {
+    private InterbankInterface interbank;
 
     /**
-     * The method validates the dock name
-     * The dock name must be letters(a-z,A-Z) and space
-     * @param dockName - the name of dock
-     * @return true if the dock name is correct format, false if not
-     */
-    public boolean validateDockName(String dockName){
-        if(dockName == null) return false;
-        String exp = "^[a-zA-Z][a-zA-Z\\s]{0,}$";
-        return dockName.matches(exp);
-    }
-
-    /**
-     * The method calculates the rental fee
-     * @param bikeType - the type of bike
+     * The method calculates the rental fee.
+     *
      * @param timeRental - the time that user rented
+     *
      * @return rentalFee - the fee corresponds to the rental time
      */
-    private int calculateRentalFee(String bikeType,int timeRental){
-        return 0;
+    public int calculateRentalFee(String timeRental) {
+        return InvoiceBL.calculateRentalFee(timeRental);
     }
 
     /**
      * This method takes responsibility for processing the return bike
      */
-    public void returnBike(){
-        //validate dockname
-        //
-    }
+    public Map<String, String> returnBike(String dockName, String timeRental) throws SQLException {
+        int rentalFees = calculateRentalFee(timeRental);
+        Map<String, String> result = new Hashtable<String, String>();
+        if (DockDL.getInstance().checkDockAvailable(dockName)) {
+            result.put("RESULT", "PAYMENT FAILED!");
+            int refundAmount = Invoice.getInstance().getBike().getDeposit() - rentalFees;
+            interbank = new InterbankSubsystem();
+            try {
+                PaymentTransaction refundTransaction =
+                    interbank.refund(Invoice.getInstance().getPayDepositTransaction().getCard(), refundAmount,
+                        "request refund");
+                result.put("RESULT", "PAYMENT SUCCESSFUL!");
+                result.put("MESSAGE", "You have successfully refund!");
 
-    /**
-     * This method gets the invoice
-     * @return invoice
-     */
-    public Invoice getInvoice() {
-        return invoice;
-    }
-
-    /**
-     * This method sets the invoice
-     * @param invoice - the invoice to set
-     */
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
+                Invoice.getInstance().setRefundTransaction(refundTransaction);
+                Invoice.getInstance().setRentalFee(rentalFees);
+                new BikeDL().updateBike(Invoice.getInstance().getBike().getBikeCode(), dockName);
+                PaymentTransactionDL.save(refundTransaction);
+                InvoiceDL.save();
+            } catch (PaymentException | UnrecognizedException ex) {
+                result.put("MESSAGE", ex.getMessage());
+            }
+        } else {
+            result.put("RESULT", "NOT AVAILABLE");
+            result.put("MESSAGE", "Please choose another dock again!!!");
+        }
+        return result;
     }
 }

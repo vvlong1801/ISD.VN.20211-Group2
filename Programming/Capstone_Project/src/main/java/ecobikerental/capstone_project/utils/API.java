@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.DateFormat;
@@ -18,6 +19,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 public class API {
+
     public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     private static Logger LOGGER = Utils.getLogger(Utils.class.getName());
 
@@ -31,14 +33,14 @@ public class API {
         conn.setRequestProperty("Authorization", "Bearer " + token);
         BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         String inputLine;
-        StringBuilder respone = new StringBuilder(); // ising StringBuilder for the sake of memory and performance
+        StringBuilder response = new StringBuilder(); // ising StringBuilder for the sake of memory and performance
         while((inputLine = in.readLine()) != null) {
             System.out.println(inputLine);
         }
-        respone.append(inputLine + "\n");
+        response.append(inputLine + "\n");
         in.close();
-        LOGGER.info("Respone Info: " + respone.substring(0, respone.length() - 1).toString());
-        return respone.substring(0, respone.length() - 1).toString();
+        LOGGER.info("Response Info: " + response.substring(0, response.length() - 1).toString());
+        return response.substring(0, response.length() - 1).toString();
     }
 
     private static HttpURLConnection setupConnection(String url) throws IOException {
@@ -46,23 +48,19 @@ public class API {
         conn.setDoInput(true);
         conn.setDoOutput(true);
         conn.setRequestProperty("Content-Type", "application/json");
+        conn.setRequestProperty("Accept", "application/json");
         return conn;
     }
 
-    int var;
-
-    public static String post(String url, String data
-                              //			, String token
-    ) throws IOException {
+    public static String post(String url, String data) throws IOException {
         allowMethods("PATCH");
         String payload = data;
         LOGGER.info("Request Info:\nRequest URL: " + url + "\n" + "Payload Data: " + payload + "\n");
 
         HttpURLConnection conn = setupConnection(url);
-
+        //        conn.setRequestProperty("X-HTTP-Method-Override", "PATCH");
         conn.setRequestMethod("PATCH");
 
-        //		conn.setRequestProperty("Authorization", "Bearer " + token);
         Writer writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
         writer.write(payload);
         writer.close();
@@ -78,7 +76,7 @@ public class API {
             response.append(inputLine);
         }
         in.close();
-        LOGGER.info("Respone Info: " + response.toString());
+        LOGGER.info("Response Info: " + response.toString());
         return response.toString();
     }
 

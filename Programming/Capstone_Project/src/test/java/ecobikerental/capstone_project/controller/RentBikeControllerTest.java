@@ -2,6 +2,7 @@ package ecobikerental.capstone_project.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import ecobikerental.capstone_project.business_layer.BikeBL;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -23,7 +24,7 @@ class RentBikeControllerTest {
         ",false"
     })
     void validateBarcode(String barcode,boolean expected) {
-        boolean isValid = rentBikeController.validateBarcode(barcode);
+        boolean isValid = BikeBL.validateBarcode(barcode);
         assertEquals(expected,isValid);
     }
 }

@@ -64,4 +64,12 @@ public class Utils {
         }
         return digest;
     }
+
+//    public static void convertObjectToJson(Object obj){
+//
+//    }
+
+//    public static void convertJsonToObject(final String response){
+//
+//    }
 }
