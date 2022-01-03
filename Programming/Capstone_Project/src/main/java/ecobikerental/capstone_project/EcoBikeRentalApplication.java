@@ -12,7 +12,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class EcoBikeRentalApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         StackPane root = (StackPane) FXMLLoader.load(getClass().getResource("views/splash.fxml"));

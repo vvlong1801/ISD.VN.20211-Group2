@@ -1,9 +1,8 @@
-package ecobikerental.capstone_project.dbconnnection_layer.payment;
+package ecobikerental.capstone_project.dbconnnection_layer;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import ecobikerental.capstone_project.dbconnnection_layer.DBConnector;
 import ecobikerental.capstone_project.entity.payment.PaymentTransaction;
 
 public class PaymentTransactionDL {

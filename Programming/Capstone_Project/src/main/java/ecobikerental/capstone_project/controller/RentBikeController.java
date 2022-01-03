@@ -3,7 +3,7 @@ package ecobikerental.capstone_project.controller;
 import java.sql.SQLException;
 
 import ecobikerental.capstone_project.business_layer.BikeBL;
-import ecobikerental.capstone_project.dbconnnection_layer.bike.BikeDL;
+import ecobikerental.capstone_project.dbconnnection_layer.BikeDL;
 import ecobikerental.capstone_project.entity.bike.Bike;
 
 public class RentBikeController extends BaseController {
