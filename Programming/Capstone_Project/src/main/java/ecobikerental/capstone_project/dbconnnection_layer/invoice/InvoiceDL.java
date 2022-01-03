@@ -6,7 +6,13 @@ import java.sql.SQLException;
 import ecobikerental.capstone_project.dbconnnection_layer.DBConnector;
 import ecobikerental.capstone_project.entity.invoice.Invoice;
 
+/**
+ * This class controls the database transactions relate to Invoice
+ */
 public class InvoiceDL {
+    /**
+     * This method saves invoice
+     */
     public static void save(){
         String sql = "insert into invoice(time_rental,rental_fees,bike,pay_deposit_transaction,refund_transaction)  values(?,?,?,?,?)";
         PreparedStatement pstmt = null;

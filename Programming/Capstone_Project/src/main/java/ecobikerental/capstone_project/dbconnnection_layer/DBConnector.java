@@ -13,8 +13,7 @@ public class DBConnector {
 
     /**
      * This method gets connection to Database
-     *
-     * @return
+     * @return connect or null
      */
     public static Connection getConnection() {
         if (connect != null) {
@@ -32,11 +31,10 @@ public class DBConnector {
     }
 
     /**
-     * @param sql
-     *
-     * @return
-     *
-     * @throws SQLException
+     * This method executes the connection query
+     * @param sql - the sql query
+     * @return result after executing query
+     * @throws SQLException - Exceptions relate to SQL
      */
     public static ResultSet query(final String sql) throws SQLException {
         Statement statement = null;
@@ -54,13 +52,12 @@ public class DBConnector {
             connect.close();
         }
     }
-
-    /**
-     * Process the connection.
-     *
-     * @param args - the arguments
-     */
-    public static void main(String[] args) {
-        DBConnector.getConnection();
-    }
+//
+//    /**
+//     * Process the connection
+//     * @param args - the arguments
+//     */
+//    public static void main(String[] args) {
+//        DBConnector.getConnection();
+//    }
 }

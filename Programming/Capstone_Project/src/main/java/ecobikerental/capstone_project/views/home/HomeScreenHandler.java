@@ -6,10 +6,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import ecobikerental.capstone_project.controller.HomeController;
+import ecobikerental.capstone_project.controller.ViewDockController;
 import ecobikerental.capstone_project.entity.dock.Dock;
 import ecobikerental.capstone_project.utils.Configs;
-import ecobikerental.capstone_project.utils.Utils;
 import ecobikerental.capstone_project.views.BaseScreenHandler;
 import ecobikerental.capstone_project.views.dock.DockInfoScreenHandler;
 import javafx.collections.FXCollections;
@@ -92,8 +91,8 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     /**
      * @return - HomeController is controller of HomeScreen
      */
-    public HomeController getController() {
-        return (HomeController) super.getController();
+    public ViewDockController getController() {
+        return (ViewDockController) super.getController();
     }
 
     /**
@@ -102,7 +101,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setController(new HomeController());
+        setController(new ViewDockController());
         setImage(imgLogo, Configs.LOGO_IMG_PATH);
 
         try {

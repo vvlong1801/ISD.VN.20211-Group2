@@ -6,7 +6,14 @@ import java.sql.SQLException;
 import ecobikerental.capstone_project.dbconnnection_layer.DBConnector;
 import ecobikerental.capstone_project.entity.payment.PaymentTransaction;
 
+/**
+ * This class controls the database transactions relate to PaymentTransaction
+ */
 public class PaymentTransactionDL {
+    /**
+     * This method saves PaymentTransaction
+     * @param paymentTransaction
+     */
     public static void save(PaymentTransaction paymentTransaction) {
         String sql = "insert into transaction values(?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = null;

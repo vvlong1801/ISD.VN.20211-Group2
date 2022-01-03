@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import ecobikerental.capstone_project.controller.HomeController;
-import ecobikerental.capstone_project.controller.ReturnBikeController;
+import ecobikerental.capstone_project.controller.ViewDockController;
 import ecobikerental.capstone_project.entity.invoice.Invoice;
 import ecobikerental.capstone_project.utils.Configs;
 import ecobikerental.capstone_project.utils.Utils;
@@ -48,7 +47,7 @@ public class InvoiceScreenHandler extends BaseScreenHandler implements Initializ
             HomeScreenHandler homeScreenHandler = null;
             try {
                 homeScreenHandler = new HomeScreenHandler(this.stage, Configs.HOME_SCREEN_PATH);
-                homeScreenHandler.setController(new HomeController());
+                homeScreenHandler.setController(new ViewDockController());
                 homeScreenHandler.setScreenTitle("Home Screen");
                 homeScreenHandler.show();
             } catch (IOException e) {
