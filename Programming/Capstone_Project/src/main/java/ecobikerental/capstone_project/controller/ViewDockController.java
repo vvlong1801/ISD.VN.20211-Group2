@@ -7,7 +7,7 @@ import ecobikerental.capstone_project.dbconnnection_layer.bike.BikeDL;
 import ecobikerental.capstone_project.dbconnnection_layer.dock.DockDL;
 import ecobikerental.capstone_project.entity.dock.Dock;
 
-public class HomeController extends BaseController {
+public class ViewDockController extends BaseController {
     /**
      * this method get the list of docks.
      *

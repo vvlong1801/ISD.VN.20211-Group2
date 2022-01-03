@@ -25,13 +25,6 @@ public class RentBikeController extends BaseController {
         }
     }
 
-    /**
-     * this method process confirm rent bike.
-     */
-    public void confirmRentBike() {
-
-    }
-
     public static void main(String[] args) {
         Bike bike = null;
         try {
