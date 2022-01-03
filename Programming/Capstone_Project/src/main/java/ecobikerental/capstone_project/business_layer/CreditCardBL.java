@@ -4,7 +4,16 @@ import java.util.Calendar;
 
 import ecobikerental.capstone_project.exception.InvalidCardException;
 
+/**
+ * This class processes businesses related to Credit Card
+ */
 public class CreditCardBL {
+    /**
+     * This method validates credit card information including expired date and security code
+     * @param expDate - the expired date
+     * @param cvvCode - the security code
+     * @return true if credit card info is valid, false if not
+     */
     public static boolean validateCreditCardInfo(final String expDate, final String cvvCode) {
         if (validateExpirationDate(expDate) && validateCvvCode(cvvCode)) {
             return true;
@@ -12,6 +21,12 @@ public class CreditCardBL {
         return false;
     }
 
+    /**
+     * This method validates expired date
+     * Correct format: mm/yy
+     * @param expDate - the expired date
+     * @return true if the expired date is correct format, false if not
+     */
     private static boolean validateExpirationDate(final String expDate) {
         if (expDate == null) {
             return false;
@@ -19,6 +34,12 @@ public class CreditCardBL {
         return expDate.matches("^(0[1-9]|1[0-2])\\/?([0-9]{2})$");
     }
 
+    /**
+     * This method validates the security code
+     * The security code is 3-digit number
+     * @param cvvCode - the security code
+     * @return true if the security code is correct format, false if not
+     */
     private static boolean validateCvvCode(final String cvvCode) {
         if (cvvCode == null || cvvCode.length() != 3) {
             return false;

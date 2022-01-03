@@ -17,16 +17,16 @@ import ecobikerental.capstone_project.subsystem.InterbankInterface;
 import ecobikerental.capstone_project.subsystem.InterbankSubsystem;
 
 /**
- * This class controls the return bike process
+ * This class controls the flow of events when users return bike to dock
  */
 public class ReturnBikeController extends BaseController {
-    private InterbankInterface interbank;
-
     /**
-     * The method calculates the rental fee.
-     *
+     * Represent the Interbank subsystem
+     */
+    private InterbankInterface interbank;
+    /**
+     * The method calculates the rental fee
      * @param timeRental - the time that user rented
-     *
      * @return rentalFee - the fee corresponds to the rental time
      */
     public int calculateRentalFee(String timeRental) {
@@ -35,6 +35,10 @@ public class ReturnBikeController extends BaseController {
 
     /**
      * This method takes responsibility for processing the return bike
+     * @param dockName - the name of dock where user returns bike
+     * @param timeRental - the time that user rented bike
+     * @return result
+     * @throws SQLException - Exceptions relate to SQL
      */
     public Map<String, String> returnBike(String dockName, String timeRental) throws SQLException {
         int rentalFees = calculateRentalFee(timeRental);
