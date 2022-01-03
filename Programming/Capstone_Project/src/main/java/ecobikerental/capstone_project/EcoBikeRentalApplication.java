@@ -15,7 +15,7 @@ import java.io.IOException;
 public class EcoBikeRentalApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        StackPane root = (StackPane) FXMLLoader.load(getClass().getResource("views/splash.fxml"));
+        StackPane root = (StackPane) FXMLLoader.load(getClass().getResource(Configs.SPLASH_SCREEN_PATH));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

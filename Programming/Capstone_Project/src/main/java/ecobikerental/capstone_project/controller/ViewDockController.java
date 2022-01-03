@@ -7,12 +7,9 @@ import ecobikerental.capstone_project.dbconnnection_layer.BikeDL;
 import ecobikerental.capstone_project.dbconnnection_layer.DockDL;
 import ecobikerental.capstone_project.entity.dock.Dock;
 
-<<<<<<< HEAD:Programming/Capstone_Project/src/main/java/ecobikerental/capstone_project/controller/ViewDockController.java
 /**
  * This class controls the flow of events when users view the Dock
  */
-=======
->>>>>>> 55626055c6ceeed428edac9b3852e838a0e9a337:Programming/Capstone_Project/src/main/java/ecobikerental/capstone_project/controller/HomeController.java
 public class ViewDockController extends BaseController {
     /**
      * This method get the list of docks
