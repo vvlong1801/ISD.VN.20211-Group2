@@ -1,4 +1,4 @@
-package ecobikerental.capstone_project.dbconnnection_layer.invoice;
+package ecobikerental.capstone_project.dbconnnection_layer;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

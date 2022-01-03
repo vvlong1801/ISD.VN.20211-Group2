@@ -5,8 +5,8 @@ import java.util.Hashtable;
 import java.util.Map;
 
 import ecobikerental.capstone_project.business_layer.CreditCardBL;
-import ecobikerental.capstone_project.dbconnnection_layer.bike.BikeDL;
-import ecobikerental.capstone_project.dbconnnection_layer.payment.PaymentTransactionDL;
+import ecobikerental.capstone_project.dbconnnection_layer.BikeDL;
+import ecobikerental.capstone_project.dbconnnection_layer.PaymentTransactionDL;
 import ecobikerental.capstone_project.entity.invoice.Invoice;
 import ecobikerental.capstone_project.entity.payment.CreditCard;
 import ecobikerental.capstone_project.entity.payment.PaymentTransaction;

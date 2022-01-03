@@ -1,7 +1,7 @@
 package ecobikerental.capstone_project;
 
-public class Main {
+public class App {
     public static void main(String[] args) {
-        HelloApplication.main(args);
+        EcoBikeRentalApplication.main(args);
     }
 }

@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import ecobikerental.capstone_project.controller.ReturnBikeController;
-import ecobikerental.capstone_project.dbconnnection_layer.dock.DockDL;
+import ecobikerental.capstone_project.dbconnnection_layer.DockDL;
 import ecobikerental.capstone_project.entity.bike.Bike;
 import ecobikerental.capstone_project.entity.bike.ElectricBike;
 import ecobikerental.capstone_project.entity.dock.Dock;

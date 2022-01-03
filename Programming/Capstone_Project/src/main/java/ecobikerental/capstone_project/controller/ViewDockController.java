@@ -3,8 +3,8 @@ package ecobikerental.capstone_project.controller;
 import java.sql.SQLException;
 import java.util.List;
 
-import ecobikerental.capstone_project.dbconnnection_layer.bike.BikeDL;
-import ecobikerental.capstone_project.dbconnnection_layer.dock.DockDL;
+import ecobikerental.capstone_project.dbconnnection_layer.BikeDL;
+import ecobikerental.capstone_project.dbconnnection_layer.DockDL;
 import ecobikerental.capstone_project.entity.dock.Dock;
 
 <<<<<<< HEAD:Programming/Capstone_Project/src/main/java/ecobikerental/capstone_project/controller/ViewDockController.java

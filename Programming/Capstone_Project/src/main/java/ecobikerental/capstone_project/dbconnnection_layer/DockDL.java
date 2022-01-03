@@ -1,4 +1,4 @@
-package ecobikerental.capstone_project.dbconnnection_layer.dock;
+package ecobikerental.capstone_project.dbconnnection_layer;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,8 +6,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import ecobikerental.capstone_project.dbconnnection_layer.DBConnector;
-import ecobikerental.capstone_project.dbconnnection_layer.bike.BikeDL;
 import ecobikerental.capstone_project.entity.dock.Dock;
 
 /**
