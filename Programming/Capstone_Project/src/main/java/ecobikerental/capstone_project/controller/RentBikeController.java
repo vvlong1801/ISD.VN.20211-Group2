@@ -26,6 +26,7 @@ public class RentBikeController extends BaseController {
         }
     }
 
+<<<<<<< HEAD
     /**
      * This method process confirm rent bike.
      */
@@ -42,4 +43,15 @@ public class RentBikeController extends BaseController {
 //        }
 //        System.out.println(bike.toString());
 //    }
+=======
+    public static void main(String[] args) {
+        Bike bike = null;
+        try {
+            bike = new RentBikeController().viewBike("Bach Khoa", "2278346617372");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(bike.toString());
+    }
+>>>>>>> 55626055c6ceeed428edac9b3852e838a0e9a337
 }
