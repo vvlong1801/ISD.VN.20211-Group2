@@ -65,7 +65,7 @@ public class Bike {
      * @return bikeCode
      */
     public String getBarcode() {
-        return this.bikeCode.substring(18, 31);
+        return this.bikeCode.substring(0, 13);
     }
 
     /**

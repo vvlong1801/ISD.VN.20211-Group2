@@ -11,6 +11,7 @@ import ecobikerental.capstone_project.entity.dock.Dock;
 import ecobikerental.capstone_project.utils.Configs;
 import ecobikerental.capstone_project.views.BaseScreenHandler;
 import ecobikerental.capstone_project.views.dock.DockInfoScreenHandler;
+import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
