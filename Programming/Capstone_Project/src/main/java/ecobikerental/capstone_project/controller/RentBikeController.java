@@ -25,15 +25,6 @@ public class RentBikeController extends BaseController {
             return null;
         }
     }
-
-<<<<<<< HEAD
-    /**
-     * This method process confirm rent bike.
-     */
-    public void confirmRentBike() {
-
-    }
-
 //    public static void main(String[] args) {
 //        Bike bike = null;
 //        try {
@@ -43,7 +34,6 @@ public class RentBikeController extends BaseController {
 //        }
 //        System.out.println(bike.toString());
 //    }
-=======
     public static void main(String[] args) {
         Bike bike = null;
         try {
@@ -53,5 +43,4 @@ public class RentBikeController extends BaseController {
         }
         System.out.println(bike.toString());
     }
->>>>>>> 55626055c6ceeed428edac9b3852e838a0e9a337
 }
