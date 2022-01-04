@@ -82,7 +82,7 @@ public class PayDepositScreenHandler extends BaseScreenHandler implements Initia
             confirmDepositScreen.setScreenTitle("Confirm Pay Deposit");
             confirmDepositScreen.show();
         } else {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Card invalid format!!");
             alert.setContentText("Expired Date has format mm/yy\nLength of security code is 3\nPlease enter again!!");
             alert.showAndWait();

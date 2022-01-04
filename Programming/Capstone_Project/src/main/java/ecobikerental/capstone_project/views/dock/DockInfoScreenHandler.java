@@ -44,7 +44,7 @@ public class DockInfoScreenHandler extends BaseScreenHandler implements Initiali
     public void setInfo() {
         lbName.setText(this.dock.getDockName());
         lbAddress.setText(this.dock.getAddress());
-        lbArea.setText(this.dock.getArea() + " m^2");
+        lbArea.setText(this.dock.getArea() + " m\u00B2");
         lbQuantity.setText(this.numberOfBike + "/" + this.dock.getQuantity());
         setImage(imgDock, "assets/images/dock2.jpg");
         setImage(imgLogo, Configs.LOGO_IMG_PATH);
