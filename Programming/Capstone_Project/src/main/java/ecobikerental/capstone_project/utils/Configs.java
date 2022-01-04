@@ -16,11 +16,8 @@ public class Configs {
     public static final String APPCODE = "DR/hgxXfn+c=";
     public static final String SECRETKEY = "BLRqOL6OIrI=";
 
-    public static final String TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxMTg2MDlfZ3JvdXAxXzIwMjAiLCJpYXQiOjE1OTkxMTk5NDl9.y81pBkM0pVn31YDPFwMGXXkQRKW5RaPIJ5WW5r9OW-Y";
-    //database configs
-    //    public static final String DB_NAME = "";
-    //    public static final String DB_USERNAME = System.getenv("DB_USERNAME");
-    //    public static final String DB_PASSWORD = System.getenv("DB_PASSWORD");
+    public static final String DB_USERNAME = "root";
+    public static final String DB_PASSWORD = "12345";
 
     public static final String SPLASH_SCREEN_PATH = "/ecobikerental/capstone_project/views/splash.fxml";
     public static final String HOME_SCREEN_PATH = "/ecobikerental/capstone_project/views/home.fxml";
