@@ -1,7 +1,7 @@
 package ecobikerental.capstone_project.business_layer;
 
 /**
- * This class processes businesses related to Credit Card
+ * This class processes businesses related to Invoice
  */
 public class InvoiceBL {
     /**

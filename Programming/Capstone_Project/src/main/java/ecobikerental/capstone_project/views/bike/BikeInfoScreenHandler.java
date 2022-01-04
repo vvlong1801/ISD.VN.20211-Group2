@@ -50,8 +50,6 @@ public class BikeInfoScreenHandler extends BaseScreenHandler implements Initiali
 
     /**
      * this method set info of screen.
-     *
-     * @param bike - the bike that is displayed information.
      */
     public void setInfo() {
         this.lbBarcode.setText(this.bike.getBarcode());
