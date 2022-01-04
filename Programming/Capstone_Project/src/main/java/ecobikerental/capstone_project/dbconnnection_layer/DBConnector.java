@@ -2,6 +2,8 @@ package ecobikerental.capstone_project.dbconnnection_layer;
 
 import java.sql.*;
 
+import ecobikerental.capstone_project.utils.Configs;
+
 /**
  * This class controls the process of connecting to Database
  */
@@ -21,7 +23,7 @@ public class DBConnector {
         }
         try {
             String url = "jdbc:mysql://localhost:3306/ecobikerental";
-            connect = DriverManager.getConnection(url, "root", "12345");
+            connect = DriverManager.getConnection(url, Configs.DB_USERNAME, Configs.DB_PASSWORD);
             System.out.println("connected");
             return connect;
         } catch (SQLException throwables) {
