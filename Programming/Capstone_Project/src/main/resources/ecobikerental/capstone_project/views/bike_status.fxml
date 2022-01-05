@@ -59,7 +59,7 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lbTime" prefHeight="40.0" text="01:20:59" textFill="#160c67">
+                        <Label fx:id="lbTime" prefHeight="40.0" text="01:59:59" textFill="#160c67">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>

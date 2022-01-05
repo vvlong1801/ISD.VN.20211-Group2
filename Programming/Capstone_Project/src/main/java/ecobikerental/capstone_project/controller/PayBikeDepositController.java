@@ -23,11 +23,12 @@ public class PayBikeDepositController extends BaseController {
     }
 
     /**
+     * this method process pay Deposit.
      * @param card     -
      * @param amount   -
      * @param contents -
      *
-     * @return
+     * @return - message
      */
     public Map<String, String> payDeposit(CreditCard card, int amount, String contents) {
         Map<String, String> result = new Hashtable<String, String>();

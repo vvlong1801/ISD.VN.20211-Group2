@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 public class Utils {
     public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     private static Logger LOGGER = getLogger(Utils.class.getName());
+
     static {
         System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-4s] [%1$tF %1$tT] [%2$-7s] %5$s %n");
     }
@@ -30,8 +31,9 @@ public class Utils {
     /**
      * Return a {@link java.lang.String String} that represents the current time in the format of yyyy-MM-dd HH:mm:ss.
      *
-     * @author hieudm
      * @return the current time as {@link java.lang.String String}.
+     *
+     * @author hieudm
      */
     public static String getToday() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -43,9 +45,11 @@ public class Utils {
      * Return a {@link java.lang.String String} that represents the cipher text
      * encrypted by md5 algorithm.
      *
-     * @author hieudm vnpay
      * @param message - plain text as {@link java.lang.String String}.
+     *
      * @return cipher text as {@link java.lang.String String}.
+     *
+     * @author hieudm vnpay
      */
     public static String md5(String message) {
         String digest = null;
@@ -65,11 +69,27 @@ public class Utils {
         return digest;
     }
 
-//    public static void convertObjectToJson(Object obj){
-//
-//    }
 
-//    public static void convertJsonToObject(final String response){
-//
-//    }
+    /**
+     * This method convert the rental time into minute(s).
+     *
+     * @param timeRental - the time that user rented bike
+     *
+     * @return minutes - the rental minute(s)
+     */
+    public static int processTime(final String timeRental) {
+        String[] timeArr = timeRental.split(":");
+        int minutes = Integer.parseInt(timeArr[0]) * 60 + Integer.parseInt(timeArr[1]);
+        if (Integer.parseInt(timeArr[2]) > 0) {
+            minutes++;
+        }
+        return minutes;
+    }
+    //    public static void convertObjectToJson(Object obj){
+    //
+    //    }
+
+    //    public static void convertJsonToObject(final String response){
+    //
+    //    }
 }

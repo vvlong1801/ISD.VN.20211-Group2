@@ -1,7 +1,5 @@
 package ecobikerental.capstone_project.business_layer;
 
-import ecobikerental.capstone_project.utils.Utils;
-
 /**
  * This class processes businesses related to Bike
  */
@@ -29,6 +27,4 @@ public class BikeBL {
         }
         return barcode + "123456" + barcode;
     }
-
-
 }

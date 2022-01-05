@@ -25,7 +25,6 @@ public class BaseScreenHandler extends FXMLScreenHandler {
     /**
      * controller of screen.
      */
-    //    protected Hashtable<String, String> messages;
     private BaseController controller;
 
     /**
