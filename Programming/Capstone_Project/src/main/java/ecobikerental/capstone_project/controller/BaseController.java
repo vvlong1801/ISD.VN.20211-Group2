@@ -1,4 +1,4 @@
 package ecobikerental.capstone_project.controller;
 
-public class BaseController {
+public abstract class BaseController {
 }

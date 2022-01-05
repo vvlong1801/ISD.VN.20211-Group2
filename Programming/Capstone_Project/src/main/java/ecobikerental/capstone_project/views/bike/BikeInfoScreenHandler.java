@@ -57,6 +57,7 @@ public class BikeInfoScreenHandler extends BaseScreenHandler implements Initiali
         this.lbDeposit.setText(Utils.getCurrencyFormat(this.bike.getDeposit()));
         this.lbType.setText(this.bike.getType());
         if (this.bike.getType().equals("Standard e-bike")) {
+            this.setImage(imgBike, "assets/images/e-bike.jpg");
             ElectricBike electricBike = (ElectricBike) this.bike;
             pin.setVisible(true);
             licensePlate.setVisible(true);
@@ -68,8 +69,7 @@ public class BikeInfoScreenHandler extends BaseScreenHandler implements Initiali
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.setImage(imgLogo, Configs.LOGO_IMG_PATH);
-        this.setImage(imgBike, "assets/images/e-bike.jpg");
-
+        this.setImage(imgBike, "assets/images/bike.jpg");
         btnRent.setOnAction(event -> {
             try {
                 confirmRentBike();

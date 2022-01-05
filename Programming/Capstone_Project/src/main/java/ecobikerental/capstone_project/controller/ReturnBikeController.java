@@ -4,7 +4,8 @@ import java.sql.SQLException;
 import java.util.Hashtable;
 import java.util.Map;
 
-import ecobikerental.capstone_project.business_layer.InvoiceBL;
+import ecobikerental.capstone_project.business_layer.rentalfee.CalculateRentalFee;
+import ecobikerental.capstone_project.business_layer.rentalfee.RentalFee;
 import ecobikerental.capstone_project.dbconnnection_layer.BikeDL;
 import ecobikerental.capstone_project.dbconnnection_layer.DockDL;
 import ecobikerental.capstone_project.dbconnnection_layer.InvoiceDL;
@@ -30,7 +31,8 @@ public class ReturnBikeController extends BaseController {
      * @return rentalFee - the fee corresponds to the rental time
      */
     public int calculateRentalFee(String timeRental) {
-        return InvoiceBL.calculateRentalFee(timeRental);
+        RentalFee calculateRentalFee = new CalculateRentalFee();
+        return calculateRentalFee.calculate(timeRental);
     }
 
     /**

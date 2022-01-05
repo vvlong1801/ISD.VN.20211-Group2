@@ -25,14 +25,6 @@ public class Invoice {
     }
 
 
-    /**
-     * This method saves the invoice.
-     */
-    public void save() {
-
-    }
-
-
     public static Invoice getInstance() {
         return instance;
     }
